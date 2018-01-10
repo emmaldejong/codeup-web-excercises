@@ -5,18 +5,37 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Register With Us</title>
     </head>
     <body>
-        <h2>Login User</h2>
-        <form method="GET" action="https://hookb.in/ZMN642PL">
-            <label for="username">Username:"</label>
-            <input type="text" name="username" id="username" placeholder="Enter Your Username Here">
+        <h2>Create New User</h2>
+        <form method="POST" action="https://hookb.in/vLN57bWm" target="_blank">
+            <label for="email">Email Address:</label>
+            <input id="email" name="email" type="email" placeholder="Enter Email Here">
             <br>
-            <label for="password">Password:"</label>
-            <input type="password" name="password" id="password" placeholder="Enter Your Password Here">
+            <label for="password">Password:</label>
+            <input id="password" name="password" type="password" placeholder="Enter Password Here">
             <br>
-            <button type=""submit>Login</button></button>
+            <h4>Enter a Bio...</h4>
+            <textarea name="comment" placeholder="Fill out a short description about yourself..."></textarea>
+            <h4>How Did You Hear About Us?</h4>
+            <fieldset>
+                <legend>Select All That Apply</legend>
+                <input type="radio" name="survey_1" value="Billboard"> Billboard<br>
+                <input type="radio" name="survey_2" value="Radio Advertisement"> Radio Advertisement<br>
+                <input type="radio" name="survey_3" value="Internet Advertisement">Internet Advertisement<br>
+                <input type="radio" name="survey_4" value="Other">Other<br>
+            </fieldset>
+            <h4>What Web Browser Are You Using?</h4>
+            <select name="web_browser">
+                <option value="safari">Safari</option>
+                <option value="chrome">Chrome</option>
+                <option value="firefox">FireFox</option>
+            </select>
+                <div>
+                <label for="submit"> Click to Create User:</label>
+                <button id="submit">Create New User</button>
+            </div>
         </form>
     </body>
 </html>
