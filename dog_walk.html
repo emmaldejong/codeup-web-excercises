@@ -9,14 +9,45 @@
     </head>
     <body>
         <h1>Register a New Dog</h1>
+        <p>
+            Please register you're new dog to your profile. Add  <em>all</em> information in the fields below even if the information is repeated for a previous pet.
+        </p>
         <form action="https://hookb.in/ZV8Ob87d" method="POST" target="_blank"></form>
         <div>
-            <label for="email">Email Address:</label>
-            <input id="email" name="email" type="email" placeholder="Enter Email Here">
+            <label for="username">Username:</label>
+            <input id="username" type="text" name="username" placeholder="Enter Username">
         </div>
         <div>
             <label for="password">Password:</label>
             <input id="password" name="password" type="password" placeholder="Enter Password Here">
+        </div>
+        <div>
+            <fieldset>
+                <legend><strong>Owner Information</strong></legend>
+                <label for="full_name">Full Name:</label>
+                <input id="full_name" type="text" name="full_name" placeholder="Enter Full Name">
+                <br>
+                <label for="email">Email:</label>
+                <input id="email" type="email" name="email" placeholder="Enter Email Address">
+                <br>
+                <label for="phone">Phone:</label>
+                <input id="phone" type="text" name="phone" placeholder="Enter Phone Number">
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <legend><strong>Pupper Information</strong></legend>
+                <label for="dog_name">Pupper Name:</label>
+                <input id="dog_name" type="text" name="dog_name" placeholder="Enter Dog Name">
+                <br>
+                <label>
+                    <select name="dog_breed">
+                        <option value="German Sheppard">German Sheppard</option>
+                        <option value="Lab">Lab</option>
+                        <option value="Poodle">Poodle</option>
+                    </select>
+                </label>
+            </fieldset>
         </div>
     <!-- Needed in form: owner information, animal information, preferred pick up time, preferred duration, location of leash in house -->
     </body>
