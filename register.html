@@ -7,7 +7,63 @@
     <body>
         <h1>Register a New User</h1>
         <form action="https://hookb.in/Zm8dQMdw" method="POST" target="_blank">
-
+            <div>
+                <label for="first_name">First Name:
+                    <input type="text" name="first_name" autofocus="autofocus" required>
+                </label>
+            </div>
+            <div>
+                <label for="middle_name">Middle Name:
+                    <input type="text" name="middle_name">
+                </label>
+            </div>
+            <div>
+                <label for="last_name">Last Name:
+                    <input type="text" name="last_name" required>
+                </label>
+            </div>
+            <div>
+                <label for="email">Email
+                    <input type="email" name="email" required>
+                </label>
+            </div>
+            <div>
+                <label for="username">Username:
+                    <input type="text" name="username" required>
+                </label>
+            </div>
+            <div>
+                <label for="password">Password:
+                    <input type="password" name="password" required>
+                </label>
+            </div>
+            <div>
+                <label for="birthdate">Date of Birth:
+                    <input type="date" name="birthdate" required>
+                </label>
+            </div>
+            <div>
+                <h4>Select all Operating Systems in Use:</h4>
+                <label>
+                    <input type="checkbox" name="os" value="OS X" id="OS X">OS X<br>
+                    <input type="checkbox" name="Windows" value="Windows" id="Windows">Windows<br>
+                    <input type="checkbox" name="linux" value="Linux" id="Linux">Linux<br>
+                    <input type="checkbox" name="os2" value="OS2" id="OS2">OS2<br>
+                    <input type="checkbox" name="chrome" value="ChromeOS" id="ChromeOS">ChromeOS<br>
+                </label>
+            </div>
+            <div>
+                <h4>Select all Programming Languages in Use:</h4>
+                <label>
+                    <input type="checkbox" name="html" value="HTML" id="HTML">HTML
+                    <input type="checkbox" name="css" value="CSS" id="CSS">CSS
+                    <input type="checkbox" name="js" value="JS" id="JS">JS
+                    <input type="checkbox" name="java" value="JAVA" id="JAVA">JAVA
+                </label>
+            </div>
+            <div>
+                <button>Submit New User</button>
+            </div>
         </form>
     </body>
 </html>
