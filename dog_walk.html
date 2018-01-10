@@ -13,47 +13,70 @@
         <form action="https://hookb.in/ZV8Ob87d" method="POST" target="_blank">
             <div>
                 <label for="username">Username:
-                    <input id="username" type="text" name="username" placeholder="Enter Username">
+                    <input id="username" type="text" name="username" autofocus="autofocus" placeholder="Enter Username" required>
                 </label>
             </div>
             <div>
                 <label for="password">Password:
-                    <input id="password" name="password" type="password" placeholder="Enter Password Here">
+                    <input id="password" name="password" type="password" placeholder="Enter Password Here" required>
                 </label>
             </div>
             <div>
                 <fieldset>
-                    <legend><strong>Owner Information</strong></legend>
+                    <legend><h3>Owner Information</h3></legend>
                     <label for="full_name">Full Name:
-                        <input id="full_name" type="text" name="full_name" placeholder="Enter Full Name">
+                        <input id="full_name" type="text" name="full_name" placeholder="Enter Full Name" required>
                     </label>
                     <br>
                     <label for="email">Email:
-                        <input id="email" type="email" name="email" placeholder="Enter Email Address">
+                        <input id="email" type="email" name="email" placeholder="Enter Email Address" required>
                     </label>
                     <br>
                     <label for="phone">Phone:
-                        <input id="phone" type="text" name="phone" placeholder="Enter Phone Number">
+                        <input id="phone" type="text" name="phone" placeholder="Enter Phone Number" required>
                     </label>
                 </fieldset>
             </div>
             <div>
                 <fieldset>
-                    <legend><strong>Pupper Information</strong></legend>
+                    <legend><h3>Pupper Information</h3></legend>
                     <label for="dog_name">Pupper Name:
-                        <input id="dog_name" type="text" name="dog_name" placeholder="Enter Dog Name">
+                        <input id="dog_name" type="text" name="dog_name" placeholder="Enter Dog Name" required>
                     </label>
                     <br>
-                    <label>
-                        <select name="dog_breed">
+                    <label for="dog_breed">Breed:
+                        <select name="dog_breed" id="dog_breed" required>
                             <option value="German Sheppard">German Sheppard</option>
                             <option value="Lab">Lab</option>
                             <option value="Poodle">Poodle</option>
+                            <option value="Rottweiler">Rottweiler</option>
+                            <option value="Beagle">Beagle</option>
+                            <option value="Bulldog">Bulldog</option>
+                            <option value="Golden">Golden</option>
+                            <option value="Husky">Husky</option>
+                            <option value="Boxer">Boxer</option>
+                            <option value="Mix Breed">Mix Breed</option>
+                            <option value="Other">Other</option>
                         </select>
                     </label>
+                    <!--"if other. please specify" textbox -->
                 </fieldset>
             </div>
         </form>
-    <!-- Needed in form: owner information, animal information, preferred pick up time, preferred duration, location of leash in house -->
+    <!-- owner information: full name, email, phone
+         animal information: name, breed, age, color, altered, chipped, vaccinated, chip ref no
+         temperment info questions: training, chases cats./small animals, aggressive w/ dogs or humans
+         preferred pick up time
+         preferred duration of walk
+         preferred walker
+         I certify that...
+         behavior information: additional write in information field
+         location of leash in house
+         background image/color
+         center all text
+         subscribe to email newsletter
+         clear form button
+         emergency contacts: friend, vet
+         add logo for company and maybe dog pictures-->
     </body>
 </html>
