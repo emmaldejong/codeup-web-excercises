@@ -8,8 +8,8 @@
         <title>Register Your Pupper</title>
     </head>
     <body>
-        <h1>Register a New Dog</h1>
-        <p>Please register you're new dog to your profile. Add  <em>all</em> information in the fields below even if the information is repeated for a previous pet.</p>
+        <h1 align="center">Register a New Dog <img src="images/paw_print.png" alt="paw_print" style="width:80px;height:80px"></h1>
+        <p align="center">Please register you're new dog to your profile. Add  <em>all</em> information in the fields below even if the information is repeated for a previous pet.</p>
         <form action="https://hookb.in/ZV8Ob87d" method="POST" target="_blank">
             <div>
                 <label for="username">Username:
@@ -46,6 +46,7 @@
                     <br>
                     <label for="dog_breed">Breed:
                         <select name="dog_breed" id="dog_breed" required>
+                            <option value="select5">Select Breed</option>
                             <option value="German Sheppard">German Sheppard</option>
                             <option value="Lab">Lab</option>
                             <option value="Poodle">Poodle</option>
@@ -57,7 +58,6 @@
                             <option value="Boxer">Boxer</option>
                             <option value="Mix Breed">Mix Breed</option>
                             <option value="Other">Other</option>
-                            <!--If other, please specify checkbox needed here-->
                         </select>
                     </label>
                     <br>
@@ -67,6 +67,7 @@
                     <br>
                     <label for="dog_color">Primary Color:
                         <select name="dog_color" id="dog_color" required>
+                            <option value="select4">Select Primary Color</option>
                             <option value="Black">Black</option>
                             <option value="Brown">Brown</option>
                             <option value="White">White</option>
@@ -74,14 +75,6 @@
                             <option value="Yellow">Yellow</option>
                             <option value="Mix/Pattern">Mix/Pattern</option>
                         </select>
-                    </label>
-                    <br>
-                    <h4>Is this animal altered?</h4>
-                    <label for="altered">
-                        <input type="radio" name="alt_status" id="altered">Altered
-                    </label>
-                    <label for="unaltered">
-                        <input type="radio" name="alt_status" id="unaltered">Unaltered
                     </label>
                     <br>
                     <h4>Is this animal microchipped?</h4>
@@ -94,15 +87,28 @@
                     <label for="chip_number"><strong>Microchip Ref No:</strong>
                         <input type="number" name="chip_number" id="chip_number" size="6" maxlength="6">
                     </label>
-     tel           </fieldset>
+                </fieldset>
                 <fieldset>
                     <legend><h3>Temperament Information</h3></legend>
-                    <label for="behavior">Please check all behaviors that apply:
-                        <input type="checkbox" name="behavior" id="behavior">Chases Cats/Small Animals
-                        <input type="checkbox" name="behavior1" id="behavior">Aggressive With Other Dogs
-                        <input type="checkbox" name="behavior2" id="behavior">Aggressive With People
-                        <input type="checkbox" name="behavior3" id="behavior">Has Any Separation Anxiety
-                        <input type="checkbox" name="behavior4" id="behavior">Nervous or Shy
+                    <h4>Please check all behaviors that apply:</h4>
+                    <label for="chase cats">
+                        <input type="checkbox" name="chase cats" id="chase cats">Chases Cats/Small Animals
+                    </label>
+                    <br>
+                    <label for="aggressive dogs">
+                        <input type="checkbox" name="aggressive dogs" id="aggressive dogs">Aggressive With Other Dogs
+                    </label>
+                    <br>
+                    <label for="aggressive people">
+                        <input type="checkbox" name="aggressive people" id="aggressive people">Aggressive With People
+                    </label>
+                    <br>
+                    <label for="anxiety">
+                        <input type="checkbox" name="anxiety" id="anxiety">Has Any Separation Anxiety
+                    </label>
+                    <br>
+                    <label for="nervous">
+                        <input type="checkbox" name="nervous" id="nervous">Nervous or Shy
                     </label>
                     <br>
                     <h4>Is there any other additional information you wish to share about your dog's behavior?</h4>
@@ -111,15 +117,15 @@
                 <fieldset>
                     <legend><h3>Emergency Contact Information</h3></legend>
                     <label for="em_contact_name">Emergency Contact Full Name:
-                        <input type="text" name="em_contact_name" id="em_contact_name" placeholder="Emergency Contact Here" required>
+                        <input type="text" name="em_contact_name" id="em_contact_name" placeholder="Contact Name" required>
                     </label>
                     <br>
                     <label for="contact_phone">Emergency Contact Phone:
-                        <input type="tel" name="contact_phone" id="contact_phone" required>
+                        <input type="tel" name="contact_phone" id="contact_phone" placeholder="Contact Phone" required>
                     </label>
                     <br>
                     <label for="relationship">Owner Relationship tp Emergency Contact:
-                        <input type="text" name="relationship" id="relationship" required>
+                        <input type="text" name="relationship" id="relationship" placeholder="Relationship" required>
                     </label>
                     <br>
                     <label for="vet_name">Veterinarian Name:
@@ -127,21 +133,65 @@
                     </label>
                     <br>
                     <label for="office_phone">Veterinarian Office Phone:
-                        <input type="tel" name="office_phone" id="office_phone">
+                        <input type="tel" name="office_phone" id="office_phone" placeholder="Office Phone">
                     </label>
                 </fieldset>
+                <fieldset>
+                    <legend><h3>Walker Information</h3></legend>
+                    <label for="walk_time">Preferred Walk Time:
+                        <select name="walk_time" id="walk_time" required>
+                            <option value="select">Select Time...</option>
+                            <option value="morning">Morning (7AM-11AM)</option>
+                            <option value="lunch">Lunch (11AM-1PM)</option>
+                            <option value="afternoon">Afternoon (1PM-4PM)</option>
+                            <option value="evening">Evening (5PM-7PM)</option>
+                            <option value="none">No Preference</option>
+                        </select>
+                    </label>
+                    <br>
+                    <label for="walk_duration">Preferred Walk Duration:
+                        <select name="walk_duration" id="walk_duration" required>
+                            <option value="select1">Select Duration...</option>
+                            <option value="15">15 Minutes</option>
+                            <option value="30">30 Minutes</option>
+                            <option value="45">45 Minutes</option>
+                            <option value="60">60 Minutes</option>
+                        </select>
+                    </label>
+                    <br>
+                    <label for="walker">Preferred Walker:
+                        <select name="walker" id="walker" required>
+                            <option value="select2">Select Walker...</option>
+                            <option value="bob">Bob</option>
+                            <option value="sarah">Sarah</option>
+                            <option value="steve">Steve</option>
+                            <option value="Dani">Dani</option>
+                            <option value="none1">No Preference</option>
+                        </select>
+                    </label>
+                    <br>
+                    <h4>Please Describe the Location of the Leash in your home:</h4>
+                    <label for="leash">
+                        <textarea name="leash" id="leash" cols="60" rows="8" placeholder="i.e. by front door..."></textarea>
+                    </label>
+                </fieldset>
+                <br>
+                <div>
+                    <label for="certify">
+                        <input type="checkbox" name="certify" id="certify" required>
+                        <em>I certify that my dog is up to date on all vaccines and I have filled out this form to the best of my abilities, making sure to identify any issues that might hender your walker adnd dog's experience together.</em>
+                    </label>
+                </div>
+                <div>
+                    <label for="newsletter">
+                        <input type="checkbox" name="newsletter" id="newsletter" checked>
+                        Sign me up for the eNewsletter!
+                    </label>
+                </div>
+                <div>
+                    <button>Submit Form</button>
+                </div>
             </div>
         </form>
-    <!-- preferred pick up time
-         preferred duration of walk
-         preferred walker
-         I certify that...
-         location of leash in house
-         background image/color
-         center all text
-         subscribe to email newsletter
-         clear form button
-         emergency contacts: friend, vet
-         add logo for company and maybe dog pictures-->
     </body>
 </html>
