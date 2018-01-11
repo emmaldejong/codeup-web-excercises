@@ -57,20 +57,85 @@
                             <option value="Boxer">Boxer</option>
                             <option value="Mix Breed">Mix Breed</option>
                             <option value="Other">Other</option>
+                            <!--If other, please specify checkbox needed here-->
                         </select>
                     </label>
-                    <!--"if other. please specify" textbox -->
+                    <br>
+                    <label for="dog_age">Age (approximate):
+                        <input type="number" name="dog_age" id="dog_age" size="2" maxlength="2" required>
+                    </label>
+                    <br>
+                    <label for="dog_color">Primary Color:
+                        <select name="dog_color" id="dog_color" required>
+                            <option value="Black">Black</option>
+                            <option value="Brown">Brown</option>
+                            <option value="White">White</option>
+                            <option value="Gray">Gray</option>
+                            <option value="Yellow">Yellow</option>
+                            <option value="Mix/Pattern">Mix/Pattern</option>
+                        </select>
+                    </label>
+                    <br>
+                    <h4>Is this animal altered?</h4>
+                    <label for="altered">
+                        <input type="radio" name="alt_status" id="altered">Altered
+                    </label>
+                    <label for="unaltered">
+                        <input type="radio" name="alt_status" id="unaltered">Unaltered
+                    </label>
+                    <br>
+                    <h4>Is this animal microchipped?</h4>
+                    <label for="chipped">
+                        <input type="radio" name="chip_status" id="chipped">Chipped
+                    </label>
+                    <label for="unchipped">
+                        <input type="radio" name="chip_status" id="unchipped">Not Chipped
+                    </label>
+                    <label for="chip_number"><strong>Microchip Ref No:</strong>
+                        <input type="number" name="chip_number" id="chip_number" size="6" maxlength="6">
+                    </label>
+     tel           </fieldset>
+                <fieldset>
+                    <legend><h3>Temperament Information</h3></legend>
+                    <label for="behavior">Please check all behaviors that apply:
+                        <input type="checkbox" name="behavior" id="behavior">Chases Cats/Small Animals
+                        <input type="checkbox" name="behavior1" id="behavior">Aggressive With Other Dogs
+                        <input type="checkbox" name="behavior2" id="behavior">Aggressive With People
+                        <input type="checkbox" name="behavior3" id="behavior">Has Any Separation Anxiety
+                        <input type="checkbox" name="behavior4" id="behavior">Nervous or Shy
+                    </label>
+                    <br>
+                    <h4>Is there any other additional information you wish to share about your dog's behavior?</h4>
+                    <textarea name="additional" id="additional" cols="60" rows="8" placeholder="Any Additional Information..."></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend><h3>Emergency Contact Information</h3></legend>
+                    <label for="em_contact_name">Emergency Contact Full Name:
+                        <input type="text" name="em_contact_name" id="em_contact_name" placeholder="Emergency Contact Here" required>
+                    </label>
+                    <br>
+                    <label for="contact_phone">Emergency Contact Phone:
+                        <input type="tel" name="contact_phone" id="contact_phone" required>
+                    </label>
+                    <br>
+                    <label for="relationship">Owner Relationship tp Emergency Contact:
+                        <input type="text" name="relationship" id="relationship" required>
+                    </label>
+                    <br>
+                    <label for="vet_name">Veterinarian Name:
+                        <input type="text" name="vet_name" id="vet_name" placeholder="Veterinarian Name">
+                    </label>
+                    <br>
+                    <label for="office_phone">Veterinarian Office Phone:
+                        <input type="tel" name="office_phone" id="office_phone">
+                    </label>
                 </fieldset>
             </div>
         </form>
-    <!-- owner information: full name, email, phone
-         animal information: name, breed, age, color, altered, chipped, vaccinated, chip ref no
-         temperment info questions: training, chases cats./small animals, aggressive w/ dogs or humans
-         preferred pick up time
+    <!-- preferred pick up time
          preferred duration of walk
          preferred walker
          I certify that...
-         behavior information: additional write in information field
          location of leash in house
          background image/color
          center all text
