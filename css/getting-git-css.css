@@ -1,0 +1,12 @@
+body {
+    margin: 0px;
+}
+.bg-primary {
+    background-color: #C04F4B;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+hr {
+    border-color: white;
+}

@@ -1,0 +1,33 @@
+body {
+    background-color: black;
+}
+.container {
+    /*position: absolute;*/
+}
+.box {
+    background-color: #2251F2;
+    width: 550px;
+    height: 750px;
+    /*position: relative;*/
+    /*float: right;*/
+}
+.box2 {
+    width: 900px;
+    height: 375px;
+    float: right;
+    position: relative;
+    bottom: 750px;
+    /*bottom: 800px;*/
+    /*float: right;*/
+}
+.red {
+    background-color: red;
+}
+.white {
+    background-color: white;
+}
+.box>img {
+    position: absolute;
+    top: 200px;
+    left: 100px;
+}

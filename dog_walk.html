@@ -6,44 +6,54 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Register Your Pupper</title>
-        <link rel="stylesheet" href="css/dog_walk_style.css">
+        <link rel="stylesheet" href="">
     </head>
     <body>
         <h1 align="center">Register a New Dog <img src="images/paw_print.png" alt="paw_print" style="width:80px;height:80px"></h1>
         <p align="center">Please register you're new dog to your profile. Add  <em>all</em> information in the fields below even if the information is repeated for a previous pet.</p>
         <form action="https://hookb.in/ZV8Ob87d" method="POST" target="_blank">
-            <div>
-                <label for="username">Username:
+            <div class="center">
+                <label for="username" class="username">Username:
                     <input id="username" type="text" name="username" autofocus="autofocus" placeholder="Enter Username" required>
                 </label>
             </div>
-            <div>
-                <label for="password">Password:
+            <br>
+            <div class="center">
+                <label for="password" class="password">Password:
                     <input id="password" name="password" type="password" placeholder="Enter Password Here" required>
                 </label>
             </div>
             <div>
-                <fieldset>
+                <fieldset class="centered">
                     <legend><h3>Owner Information</h3></legend>
-                    <label for="full_name">Full Name:
-                        <input id="full_name" type="text" name="full_name" placeholder="Enter Full Name" required>
-                    </label>
+                    <span>
+                        <label for="full_name">Full Name:
+                            <input id="full_name" type="text" name="full_name" placeholder="Enter Full Name" required>
+                        </label>
+                    </span>
                     <br>
-                    <label for="email">Email:
-                        <input id="email" type="email" name="email" placeholder="Enter Email Address" required>
-                    </label>
                     <br>
-                    <label for="phone">Phone:
-                        <input id="phone" type="text" name="phone" placeholder="Enter Phone Number" required>
-                    </label>
+                    <span>
+                        <label for="email">Email:
+                            <input id="email" type="email" name="email" placeholder="Enter Email Address" required>
+                        </label>
+                    </span>
+                    <br>
+                    <br>
+                    <span>
+                        <label for="phone">Phone:
+                            <input id="phone" type="text" name="phone" placeholder="Enter Phone Number" required>
+                        </label>
+                    </span>
                 </fieldset>
             </div>
             <div>
-                <fieldset>
+                <fieldset class="centered">
                     <legend><h3>Pupper Information</h3></legend>
                     <label for="dog_name">Pupper Name:
                         <input id="dog_name" type="text" name="dog_name" placeholder="Enter Dog Name" required>
                     </label>
+                    <br>
                     <br>
                     <label for="dog_breed">Breed:
                         <select name="dog_breed" id="dog_breed" required>
@@ -62,9 +72,11 @@
                         </select>
                     </label>
                     <br>
+                    <br>
                     <label for="dog_age">Age (approximate):
                         <input type="number" name="dog_age" id="dog_age" size="2" maxlength="2" required>
                     </label>
+                    <br>
                     <br>
                     <label for="dog_color">Primary Color:
                         <select name="dog_color" id="dog_color" required>
@@ -78,6 +90,7 @@
                         </select>
                     </label>
                     <br>
+                    <br>
                     <h4>Is this animal microchipped?</h4>
                     <label for="chipped">
                         <input type="radio" name="chip_status" id="chipped">Chipped
@@ -85,11 +98,13 @@
                     <label for="unchipped">
                         <input type="radio" name="chip_status" id="unchipped">Not Chipped
                     </label>
+                    <br>
+                    <br>
                     <label for="chip_number"><strong>Microchip Ref No:</strong>
                         <input type="number" name="chip_number" id="chip_number" size="6" maxlength="6">
                     </label>
                 </fieldset>
-                <fieldset>
+                <fieldset class="centered">
                     <legend><h3>Temperament Information</h3></legend>
                     <h4>Please check all behaviors that apply:</h4>
                     <label for="chase cats">
@@ -115,29 +130,33 @@
                     <h4>Is there any other additional information you wish to share about your dog's behavior?</h4>
                     <textarea name="additional" id="additional" cols="60" rows="8" placeholder="Any Additional Information..."></textarea>
                 </fieldset>
-                <fieldset>
+                <fieldset class="centered">
                     <legend><h3>Emergency Contact Information</h3></legend>
                     <label for="em_contact_name">Emergency Contact Full Name:
                         <input type="text" name="em_contact_name" id="em_contact_name" placeholder="Contact Name" required>
                     </label>
                     <br>
+                    <br>
                     <label for="contact_phone">Emergency Contact Phone:
                         <input type="tel" name="contact_phone" id="contact_phone" placeholder="Contact Phone" required>
                     </label>
+                    <br>
                     <br>
                     <label for="relationship">Owner Relationship tp Emergency Contact:
                         <input type="text" name="relationship" id="relationship" placeholder="Relationship" required>
                     </label>
                     <br>
+                    <br>
                     <label for="vet_name">Veterinarian Name:
                         <input type="text" name="vet_name" id="vet_name" placeholder="Veterinarian Name">
                     </label>
+                    <br>
                     <br>
                     <label for="office_phone">Veterinarian Office Phone:
                         <input type="tel" name="office_phone" id="office_phone" placeholder="Office Phone">
                     </label>
                 </fieldset>
-                <fieldset>
+                <fieldset class="centered">
                     <legend><h3>Walker Information</h3></legend>
                     <label for="walk_time">Preferred Walk Time:
                         <select name="walk_time" id="walk_time" required>
@@ -150,15 +169,17 @@
                         </select>
                     </label>
                     <br>
+                    <br>
                     <label for="walk_duration">Preferred Walk Duration:
                         <select name="walk_duration" id="walk_duration" required>
                             <option value="select1">Select Duration...</option>
                             <option value="15">15 Minutes</option>
-                            <option value="30">30 Minutes</option>
+                            <optio n value="30">30 Minutes</option>
                             <option value="45">45 Minutes</option>
                             <option value="60">60 Minutes</option>
                         </select>
                     </label>
+                    <br>
                     <br>
                     <label for="walker">Preferred Walker:
                         <select name="walker" id="walker" required>
@@ -171,25 +192,28 @@
                         </select>
                     </label>
                     <br>
+                    <br>
                     <h4>Please Describe the Location of the Leash in your home:</h4>
                     <label for="leash">
                         <textarea name="leash" id="leash" cols="60" rows="8" placeholder="i.e. by front door..."></textarea>
                     </label>
                 </fieldset>
                 <br>
-                <div>
+                <div class="bottom">
                     <label for="certify">
                         <input type="checkbox" name="certify" id="certify" required>
                         <em>I certify that my dog is up to date on all vaccines and I have filled out this form to the best of my abilities, making sure to identify any issues that might hender your walker adnd dog's experience together.</em>
                     </label>
                 </div>
-                <div>
+                <br>
+                <div class="bottom">
                     <label for="newsletter">
                         <input type="checkbox" name="newsletter" id="newsletter" checked>
                         Sign me up for the eNewsletter!
                     </label>
                 </div>
-                <div>
+                <br>
+                <div class="bottom">
                     <button>Submit Form</button>
                 </div>
             </div>
