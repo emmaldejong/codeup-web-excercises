@@ -1,0 +1,102 @@
+/*FOOTER & SOCIAL MEDIA LINKS AREA*/
+footer < p {
+    float: left;
+}
+#social-media-links {
+    float: right;
+}
+#social-media-links li {
+    list-style-type: none;
+    float: left;
+    letter-spacing: 1em;
+}
+.clear-both {
+    clear: both;
+    display: inline-block;
+    float: left;
+}
+/*NEED PAGES STYLES FOR ALL SCREENS*/
+
+/*DESKTOP SCREEN*/
+@media screen and (min-width:992px){
+    .hidden-on-desktop > a {
+    display: none;
+}
+    img {
+    clear: both;
+    width: 100%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+    h1 {
+    float: left;
+}
+    .nav-links {
+    float: right;
+    padding: 1em;
+}
+    .nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 30px;
+}
+    .nav-links > li {
+    display: inline;
+    padding: 20px;
+}
+    section {
+    width: 50%;
+}
+    .main {
+    float: left;
+}
+    .sub-section {
+    float: right;
+}
+    #social-media-links {
+    width: 2%;
+    height: 2%;
+    float: right;
+}
+}
+/*DEVICE SCREEN*/
+@media screen and (max-width:991px){
+    body {
+    background-color: lightcyan;
+}
+    .hidden-on-desktop {
+    border: 1px solid black;
+    background-color: lightskyblue;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    height: 50px;
+}
+    img {
+    clear: both;
+    width: 100%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+    h1 {
+    text-align: center;
+}
+    ul {
+    padding: 0;
+}
+    .nav-links {
+    list-style: none;
+}
+    li:nth-of-type(n) {
+    text-align: center;
+    background-color: lightgray;
+    padding: 10px;
+}
+    #social-media-links {
+    width: 6%;
+    height: 6%;
+    float: right;
+}
+}
