@@ -28,13 +28,46 @@ function identity(input) {
 console.log(identity(299));
 
 // Make a function named isOdd(number)
+// function isOdd(number) {
+//     if (number%3 == 0)
+//         return true;
+//     else
+//         return false;
+// }
+// console.log(isOdd(9));
+//I used a longer way by using the if else statement, below is a shorter way to do the odd/even and positive/negative exercises
 function isOdd(number) {
-    return
+    return (number % 3 == 0);
 }
+console.log(isOdd(8));
 
 // Make a function named isEven(number)
+function isEven(number) {
+    if (number%2 == 0)
+        return true;
+    else
+        return false;
+}
+console.log(isEven(8));
+
 // Make a function named isPositive(number)
+function isPositive(number) {
+    if (number >= 0)
+        return true;
+    else
+        return false;
+}
+console.log(isPositive(8));
+
 // Make a function named isNegative(number)
+function isNegative(number) {
+    if (number <= 0)
+        return true;
+    else
+        return false;
+}
+console.log (isNegative(-8));
+
 // Make a function named isBoolean(input)
 // Make a function named isTrue(boolean)
 // Make a function named isFalse(boolean)

@@ -26,11 +26,12 @@ console.log(helloMessage);
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-var myName = ('Codeup')
+var myName = ('Codeup');
+console.log(sayHello(myName));
+
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
 var random = Math.floor((Math.random() * 3) + 1);
-
 /**
  * TODO:
  * Create a function called 'isTwo' that takes a number as a parameter.
@@ -53,6 +54,12 @@ function isTwo(random) {
     return (random === 2);
 }
 console.log(isTwo(random));
+
+//RYAN'S SOLUTION - it's more simplified than mine
+/* function isTwo(number) {
+    return number ==2}
+}
+console.log(isTwo(random)) */
 
 /**
  * TODO:
