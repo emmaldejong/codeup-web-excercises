@@ -7,10 +7,10 @@
  * Example
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
-var myName = ('Emma')
 function sayHello(name) {
-    return ('Hello ' + name)
+    return ('Hello ' + name + '!')
 }
+console.log(sayHello('Emma'));
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
