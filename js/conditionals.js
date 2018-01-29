@@ -94,15 +94,16 @@ switch(colorName) {
     case 'blue':
         alert(colorName + ' is the color of the sky.');
         break;
-    case
+    case 'red':
+        alert('Strawberries are ' + colorName);
+        break
+    case 'cyan':
+        alert('I don\'t know anything about ' + colorName);
+        break
+    default:
+        alert(colorName + ' is not an approved color.');
+        break
 }
-
-
-
-
-
-
-
 
 /**
  * TODO:
@@ -132,7 +133,29 @@ switch(colorName) {
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+function calculateTotal(luckyNumber, totalAmount) {
+    if (luckyNumber === 5){
+        return ('Free!');
+    } else if (luckyNumber === 4) {
+        return (totalAmount - (totalAmount*.5));
+    } else if (luckyNumber === 3) {
+        return (totalAmount - (totalAmount*.35));
+    }else if (luckyNumber === 2) {
+        return (totalAmount - (totalAmount*.25));
+    }else if (luckyNumber === 1){
+        return (totalAmount - (totalAmount*.10));
+    } else if (luckyNumber === 0){
+        return  ('No Discount :(')
+    } else{
 
+    }
+}
+console.log(calculateTotal(5, 240));
+console.log(calculateTotal(4, 240));
+console.log(calculateTotal(3, 240));
+console.log(calculateTotal(2, 240));
+console.log(calculateTotal(1, 240));
+console.log(calculateTotal(0, 240));
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -141,4 +164,11 @@ switch(colorName) {
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var randomNumber = Math.floor(Math.random() * 6);
+var totalBill = prompt('Please enter the total amount of your Walmart bill below:');
+alert('The total Walmart Bill you entered was ' + totalBill);
+console.log(totalBill);
+alert('YOUR LUCKY NUMBER IS ' + randomNumber);
+console.log(randomNumber);
+alert(calculateTotal(randomNumber, totalBill));
+console.log(calculateTotal((randomNumber, totalBill)));
