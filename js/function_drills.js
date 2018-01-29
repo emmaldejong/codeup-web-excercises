@@ -84,7 +84,7 @@ console.log(isTrue(false));
 function isFalse(boolean) {
     return (boolean === false);
 }
-console.log(isFalse(ture));
+console.log(isFalse(true));
 
 // Make a function named isTruthy(input)
 
