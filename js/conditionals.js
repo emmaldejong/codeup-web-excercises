@@ -14,7 +14,7 @@
 var enterNumber = confirm('Would you like to enter a number?');
     if (enterNumber) {
         var userEnteredNumber = prompt('Enter any number below:');
-    } else {
+    }else {
         alert('Operation Canceled!');
     }
     console.log(userEnteredNumber);
@@ -25,7 +25,7 @@ var enterNumber = confirm('Would you like to enter a number?');
                 alert(userEnteredNumber + ' is an odd number.');
             }
         var plus100 = (parseInt(userEnteredNumber) + parseInt(100));
-            alert(plus100 + ' adds is your number added with 100.');
+            alert(plus100 + ' adds  is your number added with 100.');
         var negPos = (userEnteredNumber >= 0);
             if (negPos) {
                 alert(userEnteredNumber + ' is a positive number.');
@@ -96,10 +96,10 @@ switch(colorName) {
         break;
     case 'red':
         alert('Strawberries are ' + colorName);
-        break
+        break;
     case 'cyan':
         alert('I don\'t know anything about ' + colorName);
-        break
+        break;
     default:
         alert(colorName + ' is not an approved color.');
         break
@@ -166,9 +166,44 @@ console.log(calculateTotal(0, 240));
 // Generate a random number between 0 and 6
 var randomNumber = Math.floor(Math.random() * 6);
 var totalBill = prompt('Please enter the total amount of your Walmart bill below:');
-alert('The total Walmart Bill you entered was ' + totalBill);
+alert('The total Walmart Bill you entered was $' + totalBill);
 console.log(totalBill);
 alert('YOUR LUCKY NUMBER IS ' + randomNumber);
 console.log(randomNumber);
-alert(calculateTotal(randomNumber, totalBill));
+alert('$' + (calculateTotal(randomNumber, totalBill)));
 console.log(calculateTotal((randomNumber, totalBill)));
+
+/* ###################################################################################### */
+/**
+ * Bonus 1.
+ Write a function (or multiple functions) that will return
+ a boolean depending on if the string value passed to it
+ as an argument is the name of a day of the week that starts with a T.
+ Otherwise, it should return false.
+ Example: dayOfTheWeekStartsWithT("Monday")     => returns false
+ Example: dayOfTheWeekStartsWithT("Tuesday")     => returns true
+ Example: dayOfTheWeekStartsWithT("Tommy")     => returns false
+ */
+
+var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+var randomDay = days[Math.floor(Math.random() * days.length)];
+
+function dayofTheWeekStartsWithT(dayName) {
+    if (dayName === 'Monday'){
+        return false;
+    } else if (dayName === 'Tuesday'){
+        return  true;
+    } else if (dayName === 'Wednesday'){
+        return false;
+    } else if (dayName === 'Thursday'){
+        return false;
+    } else if (dayName === 'Friday'){
+            return false;
+    } else if (dayName === 'Saturday'){
+        return false;
+    } else if (dayName === 'Sunday') {i
+        return false;
+    }
+}
+console.log(randomDay);
+console.log(dayofTheWeekStartsWithT(randomDay));
