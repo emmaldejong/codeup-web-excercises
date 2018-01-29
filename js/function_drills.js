@@ -69,9 +69,27 @@ function isNegative(number) {
 console.log (isNegative(-8));
 
 // Make a function named isBoolean(input)
+function isBoolean(input) {
+    return (input === "boolean");
+}
+console.log(isBoolean(true));
+
 // Make a function named isTrue(boolean)
+function isTrue(boolean) {
+    return (boolean === true);
+}
+console.log(isTrue(false));
+
 // Make a function named isFalse(boolean)
+function isFalse(boolean) {
+    return (boolean === false);
+}
+console.log(isFalse(ture));
+
 // Make a function named isTruthy(input)
+
+
+
 // Make a function named isFalsy(input)
 // Make a function named isVowel(letter)
 // Make a function named hasVowels(string) that uses isVowel to check if a string has any vowels
