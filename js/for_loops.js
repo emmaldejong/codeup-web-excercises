@@ -1,9 +1,23 @@
 "use strict";
-var i = 0;
+//QUESTION FOR LOOPS #1 ##################################
 function showMultiplicationTable(n) {
-
+    for (var i = 0; i <= 10; i++) {
+        console.log(n + 'X' + i + '= ' + (n * i));
+    }
 }
-console.log(showMultiplicationTable(2));
+showMultiplicationTable(2);
+//QUESTION FOR LOOPS #2 #################################
+function randomEvenOdd(n) {
+    for (var i = 0; i <= 10; i++) {
+        console.log(n);
+    }
+}
 
-var randomNum = Math.floor(Math.random() * 200) + 20;
-console.log(randomNum);
+//QUESTION FOR LOOPS #3 #################################
+
+//QUESTION FOR LOOPS #4 #################################
+
+//QUESTION FOR LOOPS #5 #################################
+for (var x = 100; x > 100; x++){
+    console.log(x);
+}

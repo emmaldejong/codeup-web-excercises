@@ -1,4 +1,5 @@
 "use strict";
+//QUESTION WHILES #2 #####################################
 var x = 1;
 while(x < 70000) {
     console.log(x);
@@ -6,6 +7,7 @@ while(x < 70000) {
 }
 //How do you not start at 1? How does the exercise start at 2?
 
+//QUESTION WHILES #3#####################################
 var allCones = Math.floor(Math.random() * 50) + 50;
 console.log(allCones);
 // var randomNumber = Math.floor(Math.random() * 5) + 1;
@@ -32,10 +34,3 @@ do {
     }else {
         console.log('I don\'t have that many to sell you');
     }
-
-
-
-
-
-
-
