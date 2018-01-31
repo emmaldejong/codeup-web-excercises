@@ -16,10 +16,8 @@ function randomEvenOdd(n) {
 //QUESTION FOR LOOPS #3 #################################
 
 //QUESTION FOR LOOPS #4 #################################
+
+//QUESTION FOR LOOPS #5 #################################
 for(var i = 100; i >=5; i-=5) {
     console.log(i)
-}
-//QUESTION FOR LOOPS #5 #################################
-for (var x = 100; x > 100; x++){
-    console.log(x);
 }
