@@ -70,7 +70,7 @@ console.log (isNegative(-8));
 
 // Make a function named isBoolean(input)
 function isBoolean(input) {
-    return (input === "boolean");
+    return typeof input == "boolean";
 }
 console.log(isBoolean(true));
 
