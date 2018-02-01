@@ -15,8 +15,8 @@
       firstName: 'Emma',
       lastName: 'DeJong'
     };
-    console.log(person.firstName);
-    console.log(person.lastName);
+    console.log(person.firstName + ' ' + person.lastName);
+    // console.log(person.lastName);
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -160,14 +160,20 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
-    function addBook(title, author) {
-        this.title = title;
-        this.author = author;
-        this.getDetails = function () {
-            return this.type + " written by " + this.author;
-        }
-    }
-console.log(book('I Can\'t Get the Thing to Work', 'Emma DeJong'));
+
+
+
+
+
+
+    // function createBook(title, author) {
+    //     this.title = title;
+    //     this.author = author;
+    //     this.getDetails = function () {
+    //         return this.type + " written by " + this.author;
+    //     }
+    // }
+    // console.log(book('I Can\'t Get the Thing to Work', 'Emma DeJong'));
 
 
 
