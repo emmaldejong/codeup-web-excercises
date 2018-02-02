@@ -147,9 +147,20 @@
     var bookArrayLength = books.length;
     for (var i = 0; i < bookArrayLength; i++) {
         console.log('Book # ' + i);
-        console.log(books[i].title);
-        console.log(books[i].author.firstName + books[i].author.lastName);
+        console.log('Title: ' + books[i].title);
+        console.log('Author: ' + books[i].author.firstName + books[i].author.lastName);
+        console.log('---');
     }
+    //Justin's Solution
+    // books.forEach(function(book, index) {
+    //    var output = '';
+    //    output += 'Book # ' + (index + 1) + '\n';
+    //    output += 'Title: ' + book.title + '\n';
+    //    output += 'Author: ' + book.author + '' + book.lastName + '\n';
+    //    output += '---\n';
+    //    console.log(output);
+    // });
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -161,20 +172,37 @@
      *   `showBookInfo` function.
      */
 
+    function createBook(title, author) {
+        var nameArray = author.split(' ');
+        var firstName = nameArray[0];
+        var lastName = nameArray[1];
+        return {
+            title: title,
+            author: {
+                firstName: firstName,
+                lastName: lastName
+            }
+        }
+    }
+    var booksBonus = [
+        createBook("1984", "George Orwell"),
+        createBook("The Lord of the Rings", "J.R.R. Tolkien"),
+        createBook("R is for Rocket", "Ray Bradbury"),
+        createBook("The Lost World", "Michael Crichton"),
+        createBook("The Shining", "Stephen King")
+    ];
+    console.log(booksBonus);
 
+    function showBookInfo(book, index) {
+        var output = "Title: " + book.title + "\n";
+        output += "Author: " + book.author.firstName + " " + book.author.lastName  + "\n";
+        output += "---";
+        return output;
+    }
 
-
-
-
-    // function createBook(title, author) {
-    //     this.title = title;
-    //     this.author = author;
-    //     this.getDetails = function () {
-    //         return this.type + " written by " + this.author;
-    //     }
-    // }
-    // console.log(book('I Can\'t Get the Thing to Work', 'Emma DeJong'));
-
-
+    books.forEach(function(book, index) {
+        console.log("Book # " + (index + 1) + "\n");
+        console.log(showBookInfo(book));
+    });
 
 })();
