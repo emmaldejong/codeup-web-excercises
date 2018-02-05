@@ -37,18 +37,18 @@
                 // 4. TODO: Set the text color of subHeader to blue
                 subHeader.style.color = '#0000ff';
                 // 5. TODO: Uncomment the next line and get all list items
-                var listItems = document.getElementsByTagName('ul')[0];
+                var listItems = document.getElementsByTagName('li');
                 console.log(listItems);
                 // 6. TODO: Set text color on every other list item to grey
-                // for (i = 0; i < listItems.length; i += 2) {
-                //     (listItems[i].style.color = 'grey');
-                // }
+                for(var i = 0; i < listItems.length; i+= 2){
+                    listItems[i].style.color = "gray";
+                }
                 // 7. TODO: Set text color of li with dbid = 1 to blue
-                var firstListItem = document.getElementsByTagName('li');
-                for (var i = 0; i < firstListItem.length; i += 2) {
-                    var dbId = firstListItem[i].getAttribute("data-dbid");
-                    console.log(dbId);
-                    // dbId.style.color = 'blue';
+                for(var i = 0; i < listItems.length; i++ ){
+                    var id = listItems[i].getAttribute("data-dbid");
+                    if(id === "1"){
+                        listItems[i].style.color = "blue";
+                    }
                 }
                 // 8. TODO: Uncomment the next line and get all elements with class name sub-paragraph
                 var subParagraphs = document.getElementsByClassName('sub-paragraph')[0];
