@@ -7,11 +7,11 @@
     <body>
         <h1 id="main-header">Hello World!</h1>
         <ul>
-            <li class = 'odd' data-dbid="1">Item 1</li>
-            <li class = 'even' data-dbid="2">Item 2</li>
-            <li class = 'odd' data-dbid="3">Item 3</li>
-            <li class = 'even' data-dbid="4">Item 4</li>
-            <li class = 'odd' data-dbid="5">Item 5</li>
+            <li data-dbid="1">Item 1</li>
+            <li data-dbid="2">Item 2</li>
+            <li data-dbid="3">Item 3</li>
+            <li data-dbid="4">Item 4</li>
+            <li data-dbid="5">Item 5</li>
         </ul>
         <h2 id="sub-header">Hello Again.</h2>
         <p class="sub-paragraph">
@@ -28,21 +28,27 @@
                 "use strict";
                 // 1. TODO: Uncomment next line and get the main header element by id
                 var mainHeader = document.getElementById('main-header');
-                console.log(mainHeader);
+                // console.log(mainHeader);
                 // 2. TODO: Set inner html of mainHeader to "JavaScript is Cool"
                 mainHeader.innerHTML = 'JavaScript is Cool';
                 // 3. TODO: Uncomment the next line and get the sub header element by id
                 var subHeader = document.getElementById('sub-header');
-                console.log(subHeader);
+                // console.log(subHeader);
                 // 4. TODO: Set the text color of subHeader to blue
                 subHeader.style.color = '#0000ff';
                 // 5. TODO: Uncomment the next line and get all list items
                 var listItems = document.getElementsByTagName('li');
-                console.log(listItems);
+                // console.log(listItems);
                 // 6. TODO: Set text color on every other list item to grey
                 for(var i = 0; i < listItems.length; i+= 2){
-                    listItems[i].style.color = "gray";
+                    listItems[i].style.color = "grey";
                 }
+                //Justin's Solution:
+                // for(var i = 0; i < listItems.length; i+= 1){
+                //     if (i % 2 === 0) {
+                //         listItems.style.color = 'grey';
+                //     }
+                // }
                 // 7. TODO: Set text color of li with dbid = 1 to blue
                 for(var i = 0; i < listItems.length; i++ ){
                     var id = listItems[i].getAttribute("data-dbid");
@@ -50,6 +56,15 @@
                         listItems[i].style.color = "blue";
                     }
                 }
+                //Justin's Solution:
+                for(var i = 0; i < listItems.length; i+= 1){
+                    if (listItems[i].getAttribute('data-dbid')){
+                        if(id === "1"){
+                        listItems.style.color = 'blue';
+                    }
+                }
+                //checked the get attribute of the dbid in the console and experimented to see that the first one is true
+                //the .getAttribute finds the value of something and the data-dbid is the attribute that we want to know the value of
                 // 8. TODO: Uncomment the next line and get all elements with class name sub-paragraph
                 var subParagraphs = document.getElementsByClassName('sub-paragraph')[0];
                 console.log(subParagraphs);
