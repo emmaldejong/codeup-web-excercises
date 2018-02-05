@@ -2,13 +2,34 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Google Maps API</title>
+        <style>
+            #map-canvas {
+                width: auto;
+                margin-left: 300px;
+                margin-right: 300px;
+                height: 400px;
+                background-color: gray;
+            }
+        </style>
     </head>
     <body>
-        <h1>Google Maps API Lesson</h1>
-        <p>My favorite restaurant: Arlo's Food Truck in Austin, TX.</p>
+        <h1 align="center">Google Maps API Lesson</h1>
+        <p align="center">My favorite restaurant: Arlo's Food Truck in Austin, TX.</p>
+        <div id="map-canvas"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB1oi5bAeir45EXGSNXeN2uRt3STAkrKY"></script>
         <script>
-
+            "use strict";
+            var mapDisplay = document.getElementById('map-canvas');
+            var options = {
+                zoom: 16,
+                center: {
+                    lat: 30.269497,
+                    lng: -97.736363
+                }
+            };
+            var map = new google.maps.Map(mapDisplay, options);
         </script>
     </body>
 </html>
