@@ -7,7 +7,7 @@
     </head>
     <body>
         <section id="stopWatch">
-            <p id="timer"> Time : 00:00:00 </p>
+            <p id="timer">Time : <time>00:00:00</time></p>
             <button id="start">Start</button>
             <button id="stop">Stop</button>
             <button id="resest">Reset</button>
@@ -15,21 +15,41 @@
             <p id="fulltime"> </p>
         </section>
         <script>
-            var count = 0;
-            var interval = 1000;
-            var intervalId = setInterval (function () {
-                if (document.getElementById('start').onclick = function() {
-                        var startButton = function (startEvent) {
-                            count++
-                        };
-                        document.getElementById('start').addEventListener('click', startButton);
-                    }); else if (document.getElementById('stop').onclick = function(){
-                        var stopButton = function (stopEvent) {
-                            clearInterval(intervalId);
-                        };
-                        document.getElementById('stop').addEventListener('click', stopButton);
-                    });
-                }, interval);
+            var time = document.getElementById('timer');
+            var start = document.getElementById('start');
+            var stop = document.getElementById('stop');
+            var reset = document.getElementById('reset');
+            var seconds = 0;
+            var minutes = 0;
+            var hours = 0;
+            var interval;
+            function timerIncrease() {
+                if (seconds >= 60) {
+                    seconds = 0;
+                    minutes++
+                }if (minutes >= 60) {
+                    minutes = 0;
+                    hours++
+                }
+                time.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+            }
+            setInterval(timerIncrease());
+            // INITIAL TRY
+            // var count = 0;
+            // var interval = 1000;
+            // var intervalId = setInterval (function () {
+            //     if (document.getElementById('start').onclick = function() {
+            //             var startButton = function (startEvent) {
+            //                 count++
+            //             };
+            //             document.getElementById('start').addEventListener('click', startButton);
+            //         }); else if (document.getElementById('stop').onclick = function(){
+            //             var stopButton = function (stopEvent) {
+            //                 clearInterval(intervalId);
+            //             };
+            //             document.getElementById('stop').addEventListener('click', stopButton);
+            //         });
+            //     }, interval);
         </script>
     </body>
 </html>
