@@ -23,26 +23,41 @@
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
         </p>
+        <button type="button" id="java-main">Set Main Header</button>
+        <button type="button" id="blue-header">Change Sub Header Color</button>
+        <button type="button" id="grey-even">Turn Even Grey</li></button>
+        <button type="button" id="mission">Mission Accomplished</button>
         <script>
             (function() {
                 "use strict";
                 // 1. TODO: Uncomment next line and get the main header element by id
                 var mainHeader = document.getElementById('main-header');
-                // console.log(mainHeader);
                 // 2. TODO: Set inner html of mainHeader to "JavaScript is Cool"
-                mainHeader.innerHTML = 'JavaScript is Cool';
+               var java = function(javaEvent) {
+                    mainHeader.innerHTML = 'JavaScript is Cool';
+                };
+                document.getElementById('java-main').addEventListener('click', java);
+                // DOM LESSON EXERCISE SOLUTION: mainHeader.innerHTML = 'JavaScript is Cool';
                 // 3. TODO: Uncomment the next line and get the sub header element by id
                 var subHeader = document.getElementById('sub-header');
-                // console.log(subHeader);
                 // 4. TODO: Set the text color of subHeader to blue
-                subHeader.style.color = '#0000ff';
+                var blueHeader = function (blueEvent) {
+                    subHeader.style.color = '#0000ff';
+                };
+                document.getElementById('blue-header').addEventListener('click', blueHeader);
+                // DOM LESSON EXERCISE SOLUTION: subHeader.style.color = '#0000ff';
                 // 5. TODO: Uncomment the next line and get all list items
                 var listItems = document.getElementsByTagName('li');
-                // console.log(listItems);
                 // 6. TODO: Set text color on every other list item to grey
-                for(var i = 0; i < listItems.length; i+= 2){
-                    listItems[i].style.color = "grey";
-                }
+                var greyEvenItems = function (greyEvent) {
+                    for(var i = 0; i < listItems.length; i+= 2){
+                        listItems[i].style.color = "grey";
+                    }
+                };
+                document.getElementById('grey-even').addEventListener('click', greyEvenItems);
+                // DOM LESSON EXERCISE SOLUTION:for(var i = 0; i < listItems.length; i+= 2){
+                //     listItems[i].style.color = "grey";
+                // }
                 //Justin's Solution:
                 // for(var i = 0; i < listItems.length; i+= 1){
                 //     if (i % 2 === 0) {
@@ -66,9 +81,12 @@
                 //the .getAttribute finds the value of something and the data-dbid is the attribute that we want to know the value of
                 // 8. TODO: Uncomment the next line and get all elements with class name sub-paragraph
                 var subParagraphs = document.getElementsByClassName('sub-paragraph')[0];
-                console.log(subParagraphs);
                 // 9. TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-                subParagraphs.innerText = 'Mission Accomplished';
+                var missionText = function (missionEvent) {
+                    subParagraphs.innerText = 'Mission Accomplished';
+                };
+                document.getElementById('mission').addEventListener('click', missionText);
+                // DOM LESSON EXERCISE SOLUTION: subParagraphs.innerText = 'Mission Accomplished';
             })();
         </script>
     </body>
