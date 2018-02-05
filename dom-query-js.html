@@ -5,14 +5,13 @@
         <title>DOM: Query and Modify</title>
     </head>
     <body>
-
         <h1 id="main-header">Hello World!</h1>
         <ul>
-            <li data-dbid="1">Item 1</li>
-            <li data-dbid="2">Item 2</li>
-            <li data-dbid="3">Item 3</li>
-            <li data-dbid="4">Item 4</li>
-            <li data-dbid="5">Item 5</li>
+            <li class = 'odd' data-dbid="1">Item 1</li>
+            <li class = 'even' data-dbid="2">Item 2</li>
+            <li class = 'odd' data-dbid="3">Item 3</li>
+            <li class = 'even' data-dbid="4">Item 4</li>
+            <li class = 'odd' data-dbid="5">Item 5</li>
         </ul>
         <h2 id="sub-header">Hello Again.</h2>
         <p class="sub-paragraph">
@@ -24,32 +23,37 @@
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
         </p>
-
         <script>
             (function() {
                 "use strict";
-                // TODO: Uncomment next line and get the main header element by id
+                // 1. TODO: Uncomment next line and get the main header element by id
                 var mainHeader = document.getElementById('main-header');
                 console.log(mainHeader);
-                // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+                // 2. TODO: Set inner html of mainHeader to "JavaScript is Cool"
                 mainHeader.innerHTML = 'JavaScript is Cool';
-                // TODO: Uncomment the next line and get the sub header element by id
+                // 3. TODO: Uncomment the next line and get the sub header element by id
                 var subHeader = document.getElementById('sub-header');
                 console.log(subHeader);
-                // TODO: Set the text color of subHeader to blue
+                // 4. TODO: Set the text color of subHeader to blue
                 subHeader.style.color = '#0000ff';
-                // TODO: Uncomment the next line and get all list items
+                // 5. TODO: Uncomment the next line and get all list items
                 var listItems = document.getElementsByTagName('ul')[0];
                 console.log(listItems);
-                // TODO: Set text color on every other list item to grey
-                listItems.style.color = 'grey';
-                // TODO: Set text color of li with dbid = 1 to blue
-                var firstListItem = document.getElementsByTagName('li')[0];
-                firstListItem.style.color = 'blue';
-                // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+                // 6. TODO: Set text color on every other list item to grey
+                // for (i = 0; i < listItems.length; i += 2) {
+                //     (listItems[i].style.color = 'grey');
+                // }
+                // 7. TODO: Set text color of li with dbid = 1 to blue
+                var firstListItem = document.getElementsByTagName('li');
+                for (var i = 0; i < firstListItem.length; i += 2) {
+                    var dbId = firstListItem[i].getAttribute("data-dbid");
+                    console.log(dbId);
+                    // dbId.style.color = 'blue';
+                }
+                // 8. TODO: Uncomment the next line and get all elements with class name sub-paragraph
                 var subParagraphs = document.getElementsByClassName('sub-paragraph')[0];
                 console.log(subParagraphs);
-                // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+                // 9. TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
                 subParagraphs.innerText = 'Mission Accomplished';
             })();
         </script>
