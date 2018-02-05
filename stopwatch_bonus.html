@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <!--BASE HTML TAKEN FROM: https://www.ostraining.com/blog/coding/stopwatch/ -->
+        <title> JavaScript Stop Watch </title>
+        <link rel="stylesheet" href="css/stopwatch_css.css">
+    </head>
+    <body>
+        <section id="stopWatch">
+            <p id="timer"> Time : 00:00:00 </p>
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+            <button id="resest">Reset</button>
+            <script type="text/javascript"></script>
+            <p id="fulltime"> </p>
+        </section>
+        <script>
+            var count = 0;
+            var interval = 1000;
+            var intervalId = setInterval (function () {
+                if (document.getElementById('start').onclick = function() {
+                        var startButton = function (startEvent) {
+                            count++
+                        };
+                        document.getElementById('start').addEventListener('click', startButton);
+                    }); else if (document.getElementById('stop').onclick = function(){
+                        var stopButton = function (stopEvent) {
+                            clearInterval(intervalId);
+                        };
+                        document.getElementById('stop').addEventListener('click', stopButton);
+                    });
+                }, interval);
+        </script>
+    </body>
+</html>
+
+
