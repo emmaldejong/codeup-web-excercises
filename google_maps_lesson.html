@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Google Maps Exercise Lessons</title>
+        <style>
+            #map-canvas {
+                width: 500px;
+                margin-left: 450px;
+                margin-right: 300px;
+                height: 500px;
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
+    <h1 align="center">Google Maps API ExerciseLesson</h1>
+    <div id="map-canvas"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB1oi5bAeir45EXGSNXeN2uRt3STAkrKY"></script>
+    <script>
+        "use strict";
+        // Include code from previous example
+        var mapDisplay = document.getElementById('map-canvas');
+        var options = {
+            zoom: 16,
+            center: {
+                lat: 30.269610,
+                lng: -97.736358
+            }
+        };
+        var map = new google.maps.Map(mapDisplay, options);
+        var address = "127 Oakleaf Dr, San Antonio, TX 78209";
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ "address": address }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+            } else {
+                alert("Geocoding was not successful - STATUS: " + status);
+            }
+        });
+    </script>
+    </body>
+</html>
