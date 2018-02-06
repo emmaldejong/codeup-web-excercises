@@ -44,36 +44,41 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB1oi5bAeir45EXGSNXeN2uRt3STAkrKY"></script>
         <script type="text/javascript">
             "use strict";
-            var locations = [
-                ['Arlo\'s Truck', 30.269610, -97.736358],
-                ['Voodoo Doughnuts', 30.267809, -97.740847],
-                ['Firehouse Lounge', 30.268172, -97.741042],
+            var options = {
+                zoom: 16,
+                center: {
+                    lat: 30.268413,
+                    lng: -97.738744
+                }
+            };
+            var map = new google.maps.Map(document.getElementById('map-canvas'), options);
+            var restaurants = [
+                {
+                    name: 'Arlo\'s Food Truck',
+                    location: '900 Red River, Austin, Texas 78702',
+                    info: 'Amazing vegan food truck located outside Cheer Up Charlie\'s'
+                },
+                {
+                    name: 'Voodoo Doughnuts',
+                    location: '212 E. 6th St., Austin, Texas 78701',
+                    info: 'This counter-serve, cash-only bakeshop serves creative donuts in colorful, quirky environs.'
+                },
+                {
+                    name: 'Firehouse Lounge',
+                    location:'605 Brazos St., Austin, Texas 78701',
+                    info: 'Modern hostel accommodations & a bar serving craft cocktails in a circa-1885 fire station.'
+                }
             ];
-
-            var map = new google.maps.Map(document.getElementById('map-canvas'), {
-                zoom: 17,
-                center: new google.maps.LatLng(30.268413, -97.738744),
-                mapTypeId: google.maps.MapTypeId.SATELLITE
-            });
-
-            var infowindow = new google.maps.InfoWindow();
-
-            var marker, i;
-
-            for (i = 0; i < locations.length; i++) {
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                    animation: google.maps.Animation.DROP,
-                    map: map
-                });
-
-                google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    return function() {
-                        infowindow.setContent(locations[i][0]);
-                        infowindow.open(map, marker);
+            restaurants.forEach(function(restaurant) {
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ "address": restaurants }, function(results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        map.setCenter(results[0].geometry.location);
+                    } else {
+                        alert("Geocoding was not successful - STATUS: " + status);
                     }
-                })(marker, i));
-            }
+                });
+            });
         </script>
         <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
