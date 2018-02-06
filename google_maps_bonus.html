@@ -1,10 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Google Maps API</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+        <style>
+            body {
+                background-color: lightgrey;
+            }
+            #map-canvas {
+                width: 500px;
+                margin-left: 200px;
+                height: 500px;
+                background-color: gray;
+            }
+            #buttons {
+                margin-left: 350px;
+                margin-top: 20px;
+            }
+            #list {
+                margin-left: 200px;
+                margin-right: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 align="center">Google Maps Bonus</h1>
+        <br>
+        <h4 align="center">Bonus Problems:</h4>
+        <div align="center" id="list">
+            <ul>
+                <li>Refactor your code to display at least three favorite restaurants with information about each. You should create an array of objects with information about each restaurant to accomplish this. You will most likely need to use a .forEach() loop rather than a for.</li>
+                <li>Replace the generic marker icon with an image that is more appropriate for each restaurant.</li>
+            </ul>
+        </div>
+        <div id="map-canvas"></div>
+        <div id="buttons">
+            <button type="button" class="btn btn-info" id="zoom5">Zoom 5</button>
+            <button type="button" class="btn btn-info" id="zoom15">Zoom 15</button>
+            <button type="button" class="btn btn-info" id="zoom20">Zoom 20</button>
+        </div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB1oi5bAeir45EXGSNXeN2uRt3STAkrKY"></script>
+        <script type="text/javascript">
+            "use strict";
+            var locations = [
+                ['Arlo\'s Truck', 30.269610, -97.736358],
+                ['Voodoo Doughnuts', 30.267809, -97.740847],
+                ['Firehouse Lounge', 30.268172, -97.741042],
+            ];
+
+            var map = new google.maps.Map(document.getElementById('map-canvas'), {
+                zoom: 17,
+                center: new google.maps.LatLng(30.268413, -97.738744),
+                mapTypeId: google.maps.MapTypeId.SATELLITE
+            });
+
+            var infowindow = new google.maps.InfoWindow();
+
+            var marker, i;
+
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    animation: google.maps.Animation.DROP,
+                    map: map
+                });
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+        </script>
+        <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
 </html>
