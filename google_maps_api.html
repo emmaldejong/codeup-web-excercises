@@ -4,32 +4,84 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Google Maps API</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
         <style>
+            body {
+                background-color: lightgrey;
+            }
             #map-canvas {
                 width: 500px;
-                margin-left: 300px;
-                margin-right: 300px;
+                margin-left: 200px;
                 height: 500px;
                 background-color: gray;
+            }
+            #buttons {
+                margin-left: 350px;
+                margin-top: 20px;
             }
         </style>
     </head>
     <body>
         <h1 align="center">Google Maps API Lesson</h1>
-        <p align="center">My House Address</p>
         <div id="map-canvas"></div>
+        <div id="buttons">
+            <button type="button" class="btn btn-info" id="zoom5">Zoom 5</button>
+            <button type="button" class="btn btn-info" id="zoom15">Zoom 15</button>
+            <button type="button" class="btn btn-info" id="zoom20">Zoom 20</button>
+        </div>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB1oi5bAeir45EXGSNXeN2uRt3STAkrKY"></script>
         <script>
             "use strict";
             var mapDisplay = document.getElementById('map-canvas');
             var options = {
-                zoom: 16,
+                zoom: 17,
                 center: {
                     lat: 30.269610,
                     lng: -97.736358
-                }
+                },
+                mapTypeId: google.maps.MapTypeId.HYBRID
             };
             var map = new google.maps.Map(mapDisplay, options);
+            var address = "900 Red River, Austin, TX";
+            function geocodeIt(someAddress) {
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ "address": address }, function(results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        map.setCenter(results[0].geometry.location);
+                        console.log(results);
+                        console.log(status);
+                    } else {
+                        alert("Geocoding was not successful - STATUS: " + status);
+                    }
+                });
+            }
+            var arlo = { lat: 30.269610, lng: -97.736358 };
+            var marker = new google.maps.Marker({
+                position: arlo,
+                animation: google.maps.Animation.DROP,
+                map: map
+            });
+            var zoom5 = document.getElementById('zoom5');
+            zoom5.addEventListener('click', function () {
+                map.setZoom(5);
+            });
+            var zoom15 = document.getElementById('zoom15');
+            zoom15.addEventListener('click', function () {
+                map.setZoom(15);
+            });
+            var zoom20 = document.getElementById('zoom20');
+            zoom20.addEventListener('click', function () {
+                map.setZoom(20);
+            });
+            var contentString = "<h3>Cheer Up Charlie's & Arlo's Truck</h3>" + '<p>900 Red River, Austin, Texas 7872</p>' + '<p>Food trailer outside Cheer Up Charlie\'s for vegan tacos & burgers, plus beer & picnic-table seats.</p>' + '<p>"<em>Best vegan bacon cheeseburger & tots in Texas!</em>" -Satisfied Customer</p>'
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
         </script>
+        <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>
