@@ -23,24 +23,40 @@
         // Include code from previous example
         var mapDisplay = document.getElementById('map-canvas');
         var options = {
-            zoom: 16,
+            zoom: 17,
             center: {
                 lat: 30.269610,
                 lng: -97.736358
-            }
+            },
+            mapTypeId: google.maps.MapTypeId.HYBRID
         };
-        var map = new google.maps.Map(mapDisplay, options);
         var address = prompt('Please enter an address to search:');
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ "address": address }, function(results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
                 map.setCenter(results[0].geometry.location);
+                new google.maps.Marker({
+                    position: address,
+                    map: map,
+                    draggable: true
+                });
                 console.log(results);
                 console.log(status);
             } else {
                 alert("Geocoding was not successful - STATUS: " + status);
             }
         });
+        var map = new google.maps.Map(mapDisplay, options);
+        var codeup = { lat: 29.426791, lng: -98.489602 };
+        var marker = new google.maps.Marker({
+            position: codeup,
+            map: map,
+            draggable: true
+        });
+        var infowindow = new google.maps.InfoWindow({
+            content: "Changing the world, one programmer at a time."
+        });
+        infowindow.open(map, marker);
     </script>
     </body>
 </html>
