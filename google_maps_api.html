@@ -73,9 +73,10 @@
             zoom20.addEventListener('click', function () {
                 map.setZoom(20);
             });
-            var contentString = "<h3>Cheer Up Charlie's & Arlo's Truck</h3>" + '<p>900 Red River, Austin, Texas 7872</p>' + '<p>Food trailer outside Cheer Up Charlie\'s for vegan tacos & burgers, plus beer & picnic-table seats.</p>' + '<p>"<em>Best vegan bacon cheeseburger & tots in Texas!</em>" -Satisfied Customer</p>'
+            var contentString = "<h3>Cheer Up Charlie's & Arlo's Truck</h3>" + '<p>900 Red River, Austin, Texas 7872</p>' + '<p>Food trailer outside Cheer Up Charlie\'s for vegan tacos & burgers, plus beer & picnic-table seats.</p>' + '<p>"<em>Best vegan bacon cheeseburger & tots in Texas!</em>" -Satisfied Customer</p>' + "<p><a href='http://www.arlostruck.com/'>Arlo's Food Truck</a></p>"
             var infowindow = new google.maps.InfoWindow({
-                content: contentString
+                content: contentString,
+                maxWidth: 200
             });
             marker.addListener('click', function() {
                 infowindow.open(map, marker);
