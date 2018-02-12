@@ -46,7 +46,27 @@
             // alert(headingAlert);
 
             //MULTIPLE SELECTOR
-            $('#label, .codeup, h1').css('background-color', '#B0C4DE')
+            // $('#label, .codeup, h1').css('background-color', '#B0C4DE')
+
+            //WHEN CLICKED EVENT
+            $('#heading').click(
+                function() {
+                    $(this).css('background-color', '#B0C4DE');
+                });
+            //WHEN DOUBLE CLICKED
+            $('p').click(function() {
+                $(this).css('font-size', '18px');
+            });
+
+            //WHEN HOVER
+            $('#list-items').hover(
+                function() {
+                    $(this).css('color', 'red');
+                },
+                function() {
+                    $(this).css('color', 'black');
+                }
+            );
         </script>
     </body>
 </html>
