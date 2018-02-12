@@ -8,7 +8,7 @@
     <body>
         <h1 id="heading">Learning JQuery</h1>
         <p id="summary" class="codeup">jQuery is a cross-platform JavaScript library designed to simplify the client-side scripting of HTML. It was released in January 2006 at BarCamp NYC by John Resig.</p>
-        <h3 id="label" class="codeup">jQuery has a simple syntax makes it easy to:</h3>
+        <h3 id="label" >jQuery has a simple syntax makes it easy to:</h3>
         <ul id="list-items" class="codeup">
             <li>navigate a document</li>
             <li>select DOM elements</li>
@@ -40,10 +40,13 @@
             // });
 
             //ELEMENT SELECTOR
-            $('li').css('font-size', '20px');
-            $('h1, p, li').css('background-color', 'lime');
-            var headingAlert = $('h1').html();
-            alert(headingAlert);
+            // $('li').css('font-size', '20px');
+            // $('h1, p, li').css('background-color', 'lime');
+            // var headingAlert = $('h1').html();
+            // alert(headingAlert);
+
+            //MULTIPLE SELECTOR
+            $('#label, .codeup, h1').css('background-color', '#B0C4DE')
         </script>
     </body>
 </html>
