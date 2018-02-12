@@ -33,12 +33,17 @@
             // alert(contents);
 
             //CLASS SELECTOR
-            $('.codeup').css({
-                'border-style': 'solid',
-                'border-width': '1px',
-                'border-color': 'red'
-            });
+            // $('.codeup').css({
+            //     'border-style': 'solid',
+            //     'border-width': '1px',
+            //     'border-color': 'red'
+            // });
 
+            //ELEMENT SELECTOR
+            $('li').css('font-size', '20px');
+            $('h1, p, li').css('background-color', 'lime');
+            var headingAlert = $('h1').html();
+            alert(headingAlert);
         </script>
     </body>
 </html>
