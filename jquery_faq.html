@@ -39,16 +39,13 @@
         <button class="show-answer">Show Answers</button>
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
         <script>
-            $(document).ready(function() {
                 "use strict";
-                $('.show-answer').click(function(event) {
-                    event.preventDefault();
+                $('.show-answer').click(function() {
                     $('dd').toggleClass('invisible');
                 });
-                $('dt').click(function(event) {
-                    $('this').css('color', 'lime');
+                $('dt').click(function() {
+                    $('dt').css('background-color', 'lime');
                 });
-            });
         </script>
     </body>
 </html>
