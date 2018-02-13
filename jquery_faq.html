@@ -3,45 +3,56 @@
     <head>
         <meta charset="UTF-8">
         <title>FAQ</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         <style>
             body {
                 background-color: lightsteelblue;
                 font-family: 'Montserrat', sans-serif;
             }
+            dt {
+                font-weight: bold;
+            }
             .invisible {
                 display: none;
             }
-            dt {
-                font-weight: bold;
+            .container-fluid {
+                margin-left: 16%;
+                margin-right: 16%;
             }
         </style>
     </head>
     <body>
-        <h1>10 Frequently Asked Questions About National Parks</h1>
-        <dl>
-            <dt>How much land is set aside by the National Parks Service?</dt>
-            <dd class="invisible">51 million acres, about the size of Kansas.</dd>
-            <dt>What park was the first National Park?</dt>
-            <dd class="invisible">Yellowstone National Park was established in 1872.</dd>
-            <dt>What makes Wind Cave National Park unique?</dt>
-            <dd class="invisible">Wind Cave is known for its calcite formations known as “boxwork.” About 95% of the world’s boxwork is found in Wind Cave.</dd>
-            <dt>What is the smallest National Park?</dt>
-            <dd class="invisible">The smallest national park is Hot Springs National Park in Arkansas coming in at about 5,500 acres.</dd>
-            <dt>What is the largest National Park?</dt>
-            <dd class="invisible">Wrangell – St. Elias National Park in Alaska has an area of over 8.3 million acres.</dd>
-            <dt>Are there any states that don't have a National Park or Monument?</dt>
-            <dd class="invisible">The state of Delaware has has no National Park or Monument.</dd>
-            <dt>What is the elevation of Death Valley National Park?</dt>
-            <dd class="invisible"> Death Valley National Park, which has the lowest elevation in the U.S. at 282 feet below sea level.</dd>
-            <dt>What is the elevation of Mount Whitney National Park?</dt>
-            <dd class="invisible">Mount Whitney is the highest point in the contiguous U.S. at 14,505 feet.</dd>
-            <dt>What is unique about Crater Lake?</dt>
-            <dd class="invisible"> Crater Lake, the U.S.’ deepest lake and seventh deepest in the world, took 250 years of rain and snow accumulation to reach its current water level.</dd>
-            <dt>What is the Yellowstone Caldera?</dt>
-            <dd class="invisible">The Yellowstone Caldera, in Yellowstone National Park, is a super volcano that is responsible for three of the world’s six biggest volcano eruptions. It is on pace to blow about 100,000 years from now.</dd>
-        </dl>
-        <button class="show-answer">Toggle Answers</button>
+        <header>
+            <h1 align="center">10 Frequently Asked Questions About National Parks</h1>
+        </header>
+        <main class="container-fluid">
+            <dl>
+                <dt>How much land is set aside by the National Parks Service?</dt>
+                <dd class="invisible">51 million acres, about the size of Kansas.</dd>
+                <dt>What park was the first National Park?</dt>
+                <dd class="invisible">Yellowstone National Park was established in 1872.</dd>
+                <dt>What makes Wind Cave National Park unique?</dt>
+                <dd class="invisible">Wind Cave is known for its calcite formations known as “boxwork.” About 95% of the world’s boxwork is found in Wind Cave.</dd>
+                <dt>What is the smallest National Park?</dt>
+                <dd class="invisible">The smallest national park is Hot Springs National Park in Arkansas coming in at about 5,500 acres.</dd>
+                <dt>What is the largest National Park?</dt>
+                <dd class="invisible">Wrangell – St. Elias National Park in Alaska has an area of over 8.3 million acres.</dd>
+                <dt>Are there any states that don't have a National Park or Monument?</dt>
+                <dd class="invisible">The state of Delaware has has no National Park or Monument.</dd>
+                <dt>What is the elevation of Death Valley National Park?</dt>
+                <dd class="invisible"> Death Valley National Park, which has the lowest elevation in the U.S. at 282 feet below sea level.</dd>
+                <dt>What is the elevation of Mount Whitney National Park?</dt>
+                <dd class="invisible">Mount Whitney is the highest point in the contiguous U.S. at 14,505 feet.</dd>
+                <dt>What is unique about Crater Lake?</dt>
+                <dd class="invisible"> Crater Lake, the U.S.’ deepest lake and seventh deepest in the world, took 250 years of rain and snow accumulation to reach its current water level.</dd>
+                <dt>What is the Yellowstone Caldera?</dt>
+                <dd class="invisible">The Yellowstone Caldera, in Yellowstone National Park, is a super volcano that is responsible for three of the world’s six biggest volcano eruptions. It is on pace to blow about 100,000 years from now.</dd>
+            </dl>
+            <button class="show-answer">Toggle Answers</button>
+        </main>
+        <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
         <script>
                 "use strict";
