@@ -10,8 +10,11 @@
                 background-color: lightsteelblue;
                 font-family: 'Montserrat', sans-serif;
             }
-            dt {
+            dt, h1 {
                 font-weight: bold;
+            }
+            dt {
+                font-size: 18px;
             }
             .invisible {
                 display: none;
@@ -55,13 +58,15 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
         <script>
+            $(document).ready(function() {
                 "use strict";
                 $('.show-answer').click(function() {
                     $('dd').toggleClass('invisible');
                 });
                 $('dt').click(function() {
-                    $('dt').css('background-color', 'lime');
+                    $(this).css('background-color', 'lime');
                 });
+            });
         </script>
     </body>
 </html>
