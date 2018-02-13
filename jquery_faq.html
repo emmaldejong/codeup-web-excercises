@@ -16,6 +16,9 @@
             dt {
                 font-size: 18px;
             }
+            footer {
+                text-align: center;
+            }
             .invisible {
                 display: none;
             }
@@ -23,11 +26,23 @@
                 margin-left: 16%;
                 margin-right: 16%;
             }
+            #image {
+                width: 100px;
+                height: 100px;
+                margin-left: 22%;
+                margin-top: 20px;
+                background-color: lightseagreen;
+                border: 2px solid black;
+            }
+            .image-btn {
+                margin-left: 34%;
+                margin-top: 10px;
+            }
         </style>
     </head>
     <body>
         <header>
-            <h1 align="center">10 Frequently Asked Questions About National Parks</h1>
+            <h1 align="center" id="top">10 Frequently Asked Questions About National Parks</h1>
         </header>
         <main class="container-fluid">
             <dl>
@@ -75,7 +90,25 @@
                 <li>f60 named glaciers sit on the rugged Olympic Mountains, with 250 Glaciers Unnamed.</li>
             </ul>
             <button class="button-highlight">Highlight Last List Item</button>
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="image" class="one"></div>
+                    <button class="image-btn">Swap</button>
+                </div>
+                <div class="col-md-4">
+                    <div id="image" class="two"></div>
+                    <button class="image-btn">Swap</button>
+                </div>
+                <div class="col-md-4">
+                    <div id="image" class="three"></div>
+                    <button class="image-btn">Swap</button>
+                </div>
+            </div>
         </main>
+        <br>
+        <footer>
+            <a href="#top"><strong>Return to Top of Page</strong></a>
+        </footer>
         <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
