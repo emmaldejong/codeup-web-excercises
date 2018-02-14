@@ -41,6 +41,11 @@
             #one {
 
             }
+            #newsletter {
+                border: 3px solid black;
+                text-align: center;
+                background-color: deeppink;
+            }
         </style>
     </head>
     <body>
@@ -48,8 +53,8 @@
             <h1 align="center" id="top">10 Frequently Asked Questions About National Parks</h1>
         </header>
         <main class="container-fluid">
-            <div>
-                <h1>Would you like to sign up for our newsletter?</h1><span>X</span>
+            <div id="newsletter">
+                <span><strong>X</strong></span><h2>Would you like to sign up for our newsletter?</h2>
             </div>
             <dl>
                 <dt>How much land is set aside by the National Parks Service?</dt>
@@ -139,7 +144,15 @@
                     $('ul').each(function (index, element) {
                         $(element).children().first().css('color', 'blue')
                     })
-                })
+                });
+                $('span').click(function () {
+                    $(this).parent().hide();
+                });
+                $('ul').addClass('invisible');
+                $('h3').click(function () {
+                    $('ul').slideToggle().removeClass('invisible');
+                });
+
             });
         </script>
     </body>
