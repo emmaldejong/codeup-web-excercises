@@ -21,14 +21,43 @@
         (function() {
             "use strict";
             // TODO: Create an ajax GET request for /data/inventory.json
-            $.ajax('data/inventory.json').done(function (responseData) {
-                console.log(responseData[0].quantity);
-            })
-            // TODO: Take the data from inventory.json and append it to the products table
+                            // PRACTICE AJAX REQUEST AND CONSOLE LOG SOMETHING TO TEST IF CONNECTED
+            // $.ajax('data/inventory.json').done(function (responseData) {
+            //     console.log(responseData[0].quantity);
+            // });
 
-            //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-            //             its contents and fields
-            //       HINT: You will want to target #insertProducts for your new HTML elements
+            function updateTable() {
+                var ajaxRequest = $.ajax('data/inventory.json');
+                ajaxRequest.done(function (data) {
+                    console.log(data);
+                });
+                ajaxRequest.fail(function (job, status) {
+                    console.log(status);
+                })
+            }
+            updateTable();
+            // TODO: Take the data from inventory.json and append it to the products table
+            // function buildHTML(inventory) {
+            //     var html = '';
+            //     html += '<tbody>';
+            //     inventory.forEach(function(inventory) {
+            //         html += '<tbody>';
+            //         html += '<th>' + inventory.title + '</th>';
+            //         html += '<th>' + inventory.quantity + '</th>';
+            //         html += '<th>' + inventory.categories + '</th>';
+            //         html += '<th>' + inventory.price + '</th>';
+            //         html += '</tbody>';
+            //
+            //     });
+            //     html += '</tbody>';
+            //     $('#insertProducts').html(html);
+            // }
+                        // HINT: Your data should come back as a JSON object; use console.log() to inspect
+                        //       its contents and fields
+                        // HINT: You will want to target #insertProducts for your new HTML elements
+
+            // add button
+            // $('buttonName').click (updateTable);
         })();
         </script>
     </body>
