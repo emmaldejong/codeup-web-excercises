@@ -149,9 +149,12 @@
         <script>
             $(document).ready(function() {
                 "use strict";
+                //ATTRIBUTES LESSON
                 $('.show-answer').click(function() {
                     $('dd').toggleClass('invisible');
                 });
+
+                //TRAVERSAL LESSON
                 $('dt').click(function() {
                     $(this).css('background-color', 'lime');
                 });
@@ -168,25 +171,42 @@
                         $(element).children().first().css('color', 'blue')
                     })
                 });
+
+                //EFFECTS LESSON
                 $('span').click(function () {
                     $(this).parent().hide();
                 });
-                $('ul').addClass('invisible');
-                $('#glacier-toggle').click(function() {
-                    $('#glacier').slideToggle().removeClass('invisible');
+                //ABOVE NOT NEEDED BECAUSE OF NEW BOOTSTRAP ALERT, If the span was placed as a superscript inside the h2 in the html, you'd have to find how to select that div as the parent because when you change the html that was...
+                // you no longer have the div as the direct parent of the span, it changed the the h2
+                //use .parent().parent() in that case
+
+                //JUSTIN'S SOLUTION
+                $('h3').next().hide();
+                $('h3').click(function () {
+                    $(this).next().slideToggle();
                 });
-                $('#rainier-toggle').click(function() {
-                    $('#rainier').slideToggle().removeClass('invisible');
-                });
-                $('#olympic-toggle').click(function() {
-                    $('#olympic').slideToggle().removeClass('invisible');
-                });
-                // $('h3').click(function () {
-                //     $('ul').slideToggle().removeClass('invisible');
-                // });
+                    //BEN'S SOLUTION
+                    // $('ul').addClass('invisible');
+                    // $('#glacier-toggle').click(function() {
+                    //     $('#glacier').slideToggle().removeClass('invisible');
+                    // });
+                    // $('#rainier-toggle').click(function() {
+                    //     $('#rainier').slideToggle().removeClass('invisible');
+                    // });
+                    // $('#olympic-toggle').click(function() {
+                    //     $('#olympic').slideToggle().removeClass('invisible');
+                    // });
+
+                    //MY SOLUTION
+                    // $('h3').click(function () {
+                    //     $('ul').slideToggle().removeClass('invisible');
+                    // });
+
                 $('#register').hide().delay(8000).fadeIn({
                     duration: 600
                 });
+
+                //JUSTIN'S SOLUTION FOR 2ND BONUS:
                 // $('#myModal').on('shown.bs.modal', function () {
                 //     $('#myInput').focus()
                 // })
