@@ -41,7 +41,7 @@
             #one {
 
             }
-            #newsletter {
+            .pop-up {
                 border: 3px solid black;
                 text-align: center;
                 background-color: deeppink;
@@ -53,8 +53,13 @@
             <h1 align="center" id="top">10 Frequently Asked Questions About National Parks</h1>
         </header>
         <main class="container-fluid">
-            <div id="newsletter">
+            <div id="newsletter" class="pop-up">
                 <span><strong>X</strong></span><h2>Would you like to sign up for our newsletter?</h2>
+            </div>
+            <br>
+            <br>
+            <div id="register" class="pop-up">
+                <h2>Would you like to register a user for this site?</h2>
             </div>
             <dl>
                 <dt>How much land is set aside by the National Parks Service?</dt>
@@ -152,7 +157,9 @@
                 $('h3').click(function () {
                     $('ul').slideToggle().removeClass('invisible');
                 });
-
+                $('#register').hide().delay(8000).fadeIn({
+                    duration: 600
+                });
             });
         </script>
     </body>
