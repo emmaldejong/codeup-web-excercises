@@ -58,27 +58,27 @@
                 <!--<span><strong>X</strong></span>-->
                 <h2>Would you like to sign up for our newsletter?</h2>
             </div>
-            <div id="register" class="pop-up">
-                <h2>Would you like to register a user for this site?</h2>
-            </div>
-            <br>
-            <!--<div class="modal fade" tabindex="-1" role="dialog" id="register">-->
-                <!--<div class="modal-dialog" role="document">-->
-                    <!--<div class="modal-content">-->
-                        <!--<div class="modal-header">-->
-                            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-                            <!--<h4 class="modal-title">Registration:</h4>-->
-                        <!--</div>-->
-                        <!--<div class="modal-body">-->
-                            <!--<p>Would you like to register as a user on this site?&hellip;</p>-->
-                        <!--</div>-->
-                        <!--<div class="modal-footer">-->
-                            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Nope</button>-->
-                            <!--<button type="button" class="btn btn-primary">Yes! Register Me!</button>-->
-                        <!--</div>-->
-                    <!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
-                <!--</div>&lt;!&ndash; /.modal-dialog &ndash;&gt;-->
-            <!--</div>&lt;!&ndash; /.modal &ndash;&gt;-->
+            <!--<div id="register" class="pop-up">-->
+                <!--<h2>Would you like to register a user for this site?</h2>-->
+            <!--</div>-->
+            <!--<br>-->
+            <div class="modal fade" tabindex="-1" role="dialog" id="register">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Registration:</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Would you like to register as a user on this site?&hellip;</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Nope</button>
+                            <button type="button" class="btn btn-primary">Yes! Register Me!</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
             <dl>
                 <dt>How much land is set aside by the National Parks Service?</dt>
                 <dd class="invisible">51 million acres, about the size of Kansas.</dd>
@@ -206,10 +206,12 @@
                     duration: 600
                 });
 
-                //JUSTIN'S SOLUTION FOR 2ND BONUS:
-                // $('#myModal').on('shown.bs.modal', function () {
-                //     $('#myInput').focus()
-                // })
+                //JUSTIN'S SOLUTION FOR BONUS: .modal function not working yet with my code
+                $("#newsletter").hide().delay(2000).removeClass('hidden').fadeIn(1000);
+
+                setTimeout(function () {
+                    $('#myModal').modal('show');
+                }, 2000);
             });
         </script>
     </body>
