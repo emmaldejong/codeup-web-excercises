@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Weather Map API Lesson</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+        <style>
+            body {
+                text-align: center;
+                background-color: lightblue;
+            }
+            .forecast {
+                background-color: lightgrey;
+                border: 1px solid black;
+            }
+            .position {
+                background-color: lightslategrey;
+                border: 1px solid black;
+                font-size: 18px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="container-fulid">
+            <div id="heading">
+                <h1>Weather Application</h1>
+            </div>
+        </header>
+        <main class="container-fulid">
+            <div id="city">
+                <h2>San Antonio</h2>
+            </div>
+            <div class="row">
+                <div class="position col-sm-4">Current</div>
+                <div class="position col-sm-4">Tomorrow</div>
+                <div class="position col-sm-4">Next Day</div>
+            </div>
+            <div class="row" id="days">
+                <div class="forecast col-sm-4" id="current"></div>
+                <div class="forecast col-sm-4" id="tomorrow"></div>
+                <div class="forecast col-sm-4" id="next"></div>
+            </div>
+        </main>
+        <footer class="container-fluid">
+
+        </footer>
+        <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script>
+            (function () {
+                "use strict";
+
+                var ajaxRequest = $.get("http://api.openweathermap.org/data/2.5/weather", {
+                    APPID: "59a3d5bdeb97441bc2f807694bed48da",
+                    id:     4726206,
+                    units: "imperial"
+                });
+                var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?id=4726206", {
+                    APPID: "59a3d5bdeb97441bc2f807694bed48da",
+                    id:     4726206,
+                    units: "imperial"
+                });
+
+                ajaxRequest.done(function (weather) {
+                    console.log(weather);
+                    var current = '';
+
+                    current = '<div>' + '<div>' + weather.main.temp_max + "/" + weather.main.temp_min + '</div>' + '<div>' + "Clouds: " + weather.weather["0"].description + '</div>' + '<div>' + "Humidity: " + weather.main.humidity + '</div>' + '<div>' + "Wind: " + weather.wind.speed + '</div>' + '<div>' + "Pressure: " + weather.main.pressure + '</div>' + '</div>';
+
+                    $('#current').append(current);
+                });
+
+                ajaxRequestFore.done(function (forecast) {
+                    console.log(forecast);
+                    var tomorrow = '';
+
+                    tomorrow = '<div>' + '<div>' + forecast.list[4].main.temp_max + "/" + forecast.list[4].main.temp_min + '</div>' + '<div>' + "Rain: " + forecast.list[4].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list[4].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list[4].wind.speed + '</div>' + '<div>' + "Pressure: " + forecast.list[4].main.pressure + '</div>';
+
+                    $('#tomorrow').append(tomorrow);
+
+                    var next = '';
+
+                    next = '<div>' + '<div>' + forecast.list[12].main.temp_max + "/" + forecast.list[12].main.temp_min + '</div>' + '<div>' + "Rain: " + forecast.list[12].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list[12].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list[12].wind.speed + '</div>' + '<div>' + "Pressure: " + forecast.list[12].main.pressure + '</div>';
+
+                    $('#next').append(next);
+                });
+            })();
+        </script>
+    </body>
+</html>
