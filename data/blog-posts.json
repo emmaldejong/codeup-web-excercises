@@ -3,7 +3,30 @@
     "title": "My First Blog Post",
     "content": "lorem ipum dolor...",
     "categories": [
-
-    ]
+        "greek"
+    ],
+    "date": "January, 25, 2015"
+  },
+  {
+    "title": "The Second Post",
+    "content": "Cupcake...",
+    "categories": [
+      "family",
+      "candy",
+      "sweets",
+      "sugar"
+    ],
+    "date": "February, 14, 2015"
+  },
+  {
+    "title": "The Third Post",
+    "content": "This is a test blog post...",
+    "categories": [
+      "test",
+      "hello",
+      "world",
+      "plans"
+    ],
+    "date": "March, 14, 2015"
   }
 ]
