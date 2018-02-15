@@ -27,7 +27,6 @@
             // $.ajax('data/inventory.json').done(function (responseData) {
             //     console.log(responseData[0].quantity);
             // });
-            function loadTable() {
 
                 var ajaxRequest = $.ajax('data/inventory.json');
 
@@ -41,7 +40,6 @@
                     console.log('There was an error, check console log for details!');
                     console.log(status);
                 });
-            }
 
             // TODO: Take the data from inventory.json and append it to the products table
             function buildHTML(inventory) {
