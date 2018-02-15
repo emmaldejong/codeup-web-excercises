@@ -57,6 +57,7 @@
                     id:     4726206,
                     units: "imperial"
                 });
+
                 var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?id=4726206", {
                     APPID: "59a3d5bdeb97441bc2f807694bed48da",
                     id:     4726206,
@@ -66,8 +67,10 @@
                 ajaxRequest.done(function (weather) {
                     console.log(weather);
                     var current = '';
+                    var iconCode = weather.weather["0"].icon;
+                    var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
 
-                    current = '<div>' + '<div>' + weather.main.temp_max + "/" + weather.main.temp_min + '</div>' + '<div>' + "Clouds: " + weather.weather["0"].description + '</div>' + '<div>' + "Humidity: " + weather.main.humidity + '</div>' + '<div>' + "Wind: " + weather.wind.speed + '</div>' + '<div>' + "Pressure: " + weather.main.pressure + '</div>' + '</div>';
+                    current = '<div>' + '<div>' + '<h3>' + Math.round(weather.main.temp_max) + "°" + "/" +  " " + Math.round(weather.main.temp_min) + "°" + '</h3>' + '</div>' + '<div><img src="' + iconUrl  + '">' + '</div>' + '<div>' + "Clouds: " + weather.weather["0"].description + '</div>' + '<div>' + "Humidity: " + weather.main.humidity + '</div>' + '<div>' + "Wind: " + weather.wind.speed + '</div>' + '<div>' + "Pressure: " + weather.main.pressure + '</div>' + '</div>';
 
                     $('#current').append(current);
                 });
@@ -75,14 +78,18 @@
                 ajaxRequestFore.done(function (forecast) {
                     console.log(forecast);
                     var tomorrow = '';
+                    var tomorrowIconCode = forecast.list[4].weather["0"].icon;
+                    var tomorrowIconUrl = "http://openweathermap.org/img/w/" + tomorrowIconCode + ".png";
 
-                    tomorrow = '<div>' + '<div>' + forecast.list[4].main.temp_max + "/" + forecast.list[4].main.temp_min + '</div>' + '<div>' + "Rain: " + forecast.list[4].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list[4].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list[4].wind.speed + '</div>' + '<div>' + "Pressure: " + forecast.list[4].main.pressure + '</div>';
+                    tomorrow = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list[4].main.temp_max) + "°" + "/" + " " + Math.round(forecast.list[4].main.temp_min) + "°" + "</h3>" + '</div>' + '<div><img src="' + tomorrowIconUrl  + '">' + '</div>' + '<div>' + "Rain: " + forecast.list[4].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list[4].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list[4].wind.speed + '</div>' + '<div>' + "Pressure: " + forecast.list[4].main.pressure + '</div>';
 
                     $('#tomorrow').append(tomorrow);
 
                     var next = '';
+                    var nextIconCode = forecast.list[12].weather["0"].icon;
+                    var nextIconUrl = "http://openweathermap.org/img/w/" + nextIconCode + ".png";
 
-                    next = '<div>' + '<div>' + forecast.list[12].main.temp_max + "/" + forecast.list[12].main.temp_min + '</div>' + '<div>' + "Rain: " + forecast.list[12].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list[12].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list[12].wind.speed + '</div>' + '<div>' + "Pressure: " + forecast.list[12].main.pressure + '</div>';
+                    next = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list[12].main.temp_max) + "°" + "/" + " " + Math.round(forecast.list[12].main.temp_min) + "°" + '</div>' + '<div><img src="' + nextIconUrl  + '">' + '</div>' + '<div>' + "Rain: " + forecast.list[12].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list[12].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list[12].wind.speed + '</div>' + '<div>' + "Pressure: " + forecast.list[12].main.pressure + '</div>';
 
                     $('#next').append(next);
                 });
