@@ -10,12 +10,13 @@
                 <tr>
                     <th>Title</th>
                     <th>Quantity</th>
-                    <th>Price</th>
                     <th>Categories</th>
+                    <th>Price</th>
                 </tr>
             </thead>
             <tbody id="insertProducts"></tbody>
         </table>
+        <button id="refreshBtn">Refresh Table</button>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script>
         (function() {
@@ -26,38 +27,38 @@
             //     console.log(responseData[0].quantity);
             // });
 
-            function updateTable() {
                 var ajaxRequest = $.ajax('data/inventory.json');
+
                 ajaxRequest.done(function (data) {
-                    buildHTML(data);
+                    console.log(data);
+                    data.forEach(function(inventory) {
+                        buildHTML(inventory);
+                    });
                 });
-                ajaxRequest.fail(function (job, status) {
+
+                ajaxRequest.fail(function (jqXhr, job, status) {
+                    console.log('There was an error, check console log for details!');
                     console.log(status);
-                })
-            }
-            updateTable();
+                });
+
             // TODO: Take the data from inventory.json and append it to the products table
             function buildHTML(inventory) {
                 var html = '';
-                html += '<tbody>';
-                inventory.forEach(function(inventory) {
-                    html += '<tbody>';
-                    html += '<th>' + inventory.title + '</th>';
-                    html += '<th>' + inventory.quantity + '</th>';
-                    html += '<th>' + inventory.categories + '</th>';
-                    html += '<th>' + inventory.price + '</th>';
-                    html += '</tbody>';
+                    html += '<tr>';
+                    html += '<td>' + inventory.title + '</td>';
+                    html += '<td>' + inventory.quantity + '</td>';
+                    html += '<td>' + inventory.categories + '</td>';
+                    html += '<td>' + inventory.price + '</td>';
+                    html += '</tr>';
 
-                });
-                html += '</tbody>';
-                $('#insertProducts').html(html);
+                $('#insertProducts').append(html);
             }
                         // HINT: Your data should come back as a JSON object; use console.log() to inspect
                         //       its contents and fields
                         // HINT: You will want to target #insertProducts for your new HTML elements
 
             // add button
-            // $('buttonName').click (updateTable);
+            $('refreshBtn').click(ajaxRequest);
         })();
         </script>
     </body>
