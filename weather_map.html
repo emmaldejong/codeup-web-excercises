@@ -75,11 +75,11 @@
             (function () {
                 "use strict";
 
-                var ajaxRequest = $.get("http://api.openweathermap.org/data/2.5/weather", {
-                    APPID: "59a3d5bdeb97441bc2f807694bed48da",
-                    id:     4726206,
-                    units: "imperial"
-                });
+                // var ajaxRequest = $.get("http://api.openweathermap.org/data/2.5/weather", {
+                //     APPID: "59a3d5bdeb97441bc2f807694bed48da",
+                //     id:     4726206,
+                //     units: "imperial"
+                // });
 
                 var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?id=4726206", {
                     APPID: "59a3d5bdeb97441bc2f807694bed48da",
@@ -87,19 +87,28 @@
                     units: "imperial"
                 });
 
-                ajaxRequest.done(function (weather) {
-                    console.log(weather);
-                    var current = '';
-                    var iconCode = weather.weather["0"].icon;
-                    var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
-
-                    current = '<div>' + '<div>' + '<h3>' + Math.round(weather.main.temp_max) + "°" + "/" +  " " + Math.round(weather.main.temp_min) + "°" + '</h3>' + '</div>' + '<div><img src="' + iconUrl  + '">' + '</div>' + '<div>' + "Clouds: " + weather.weather["0"].description + '</div>' + '<div>' + "Humidity: " + weather.main.humidity + '</div>' + '<div>' + "Wind: " + weather.wind.speed + '</div>' + '<div>' + "Pressure: " + weather.main.pressure + '</div>' + '</div>';
-
-                    $('#current').append(current);
-                });
+                // ajaxRequest.done(function (weather) {
+                //     console.log(weather);
+                //     var current = '';
+                //     var iconCode = weather.weather["0"].icon;
+                //     var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+                //
+                //     current = '<div>' + '<div>' + '<h3>' + Math.round(weather.main.temp_max) + "°" + "/" +  " " + Math.round(weather.main.temp_min) + "°" + '</h3>' + '</div>' + '<div><img src="' + iconUrl  + '">' + '</div>' + '<div>' + "Clouds: " + weather.weather["0"].description + '</div>' + '<div>' + "Humidity: " + weather.main.humidity + '</div>' + '<div>' + "Wind: " + weather.wind.speed + '</div>' + '<div>' + "Pressure: " + weather.main.pressure + '</div>' + '</div>';
+                //
+                //     $('#current').append(current);
+                // });
 
                 ajaxRequestFore.done(function (forecast) {
                     console.log(forecast);
+
+                    var current = '';
+                    var iconCode = forecast.list["0"].weather["0"].icon;
+                    var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+
+                    current = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list["0"].main.temp_max) + "°" + "/" +  " " + Math.round(forecast.list["0"].main.temp_min) + "°" + '</h3>' + '</div>' + '<div><img src="' + iconUrl  + '">' + '</div>' + '<div>' + "Clouds: " + forecast.list["0"].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list["0"].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list["0"].wind.speedd + '</div>' + '<div>' + "Pressure: " + forecast.list["0"].main.pressure + '</div>' + '</div>';
+
+                    $('#current').append(current);
+
                     var tomorrow = '';
                     var tomorrowIconCode = forecast.list[4].weather["0"].icon;
                     var tomorrowIconUrl = "http://openweathermap.org/img/w/" + tomorrowIconCode + ".png";
