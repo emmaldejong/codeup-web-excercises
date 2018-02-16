@@ -57,7 +57,7 @@
                 <input type="text" id="lat" class="coordinates">
                 <label for="long">Longitude:</label>
                 <input type="text" id="long" class="coordinates">
-                <button>Submit</button>
+                <button class="inputBtn">Submit</button>
             </form>
             <br>
             <div class="row">
@@ -75,10 +75,28 @@
             (function () {
                 "use strict";
 
-                var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?id=4726206", {
+                // var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?id=4726206", {
+                //     APPID: "59a3d5bdeb97441bc2f807694bed48da",
+                //     id:     4726206,
+                //     units: "imperial"
+                // });
+
+                var lat = document.getElementById('lat').value;
+                var lng = document.getElementById('long').value;
+
+                var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng, {
                     APPID: "59a3d5bdeb97441bc2f807694bed48da",
-                    id:     4726206,
+                    lat: lat,
+                    long: lng,
                     units: "imperial"
+                });
+
+                $('.inputBtn').click(function(e) {
+                    e.preventDefault();
+                    console.log(lat);
+                    console.log(lng);
+
+                    // doTheThings();
                 });
 
                 ajaxRequestFore.done(function (forecast) {
@@ -117,25 +135,11 @@
                 };
                 var map = new google.maps.Map(document.getElementById("map-canvas"), mapSpecs);
 
-                var lat = document.getElementById('lat').value;
-                var long = document.getElementById('long').value;
-
-                console.log(lat);
-                console.log(long);
-
-                // $('test').click(function(e) {
-                //     e.preventDefault();
-                //
-                //     doTheThings();
-                // });
-
 
                 // define variables that hold onto the inputs of lat and long, but .value isn't defined as a function?
             // get the submit button to call a new request to the api and pass the lat and long inputs through with the request
-            // can all this be done the way i hard coded?
 
             // what am i missing from the map? geocoder? go back and look at the exercise...
-            // why isn't my map responsive with the rest of the page?
             })();
         </script>
     </body>
