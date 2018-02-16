@@ -11,6 +11,7 @@
             }
             p {
                 font-weight: bold;
+                font-size: 16px;
             }
             .forecast {
                 background-color: lightgrey;
@@ -54,7 +55,11 @@
             <br>
             <form>
                 <p>Enter Coordinates Here:</p>
-                <input type="text" name="coordinates" placeholder="lat & long..."> <button>Submit</button>
+                <label for="lat">Latitude:</label>
+                <input type="text" id="lat" class="coordinates">
+                <label for="long">Longitude:</label>
+                <input type="text" id="long" class="coordinates">
+                <button>Submit</button>
             </form>
             <br>
             <div class="row">
@@ -119,6 +124,17 @@
                     }
                 };
                 var map = new google.maps.Map(document.getElementById("map-canvas"), mapSpecs);
+
+                var lat = document.getElementById('lat').value();
+                var long = document.getElementById('long').value();
+
+
+            // define variables that hold onto the inputs of lat and long, but .value isn't defined as a function?
+            // get the submit button to call a new request to the api and pass the lat and long inputs through with the request
+            // can all this be done the way i hard coded and used the weather and forecast api?
+
+            // what am i missing from the map? geocoder? go back and look at the exercise...
+            // why isn't my map responsive with the rest of the page?
             })();
         </script>
     </body>
