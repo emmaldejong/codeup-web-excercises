@@ -75,24 +75,30 @@
             (function () {
                 "use strict";
 
+                var lat;
+                var lng;
+
                 var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?id=4726206", {
                     APPID: "59a3d5bdeb97441bc2f807694bed48da",
                     id:     4726206,
                     units: "imperial"
                 });
 
-                // var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng, {
-                //     APPID: "59a3d5bdeb97441bc2f807694bed48da",
-                //     units: "imperial"
-                // });
+                function submitUpdateCoor() {
+                    $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng, {
+                        APPID: "59a3d5bdeb97441bc2f807694bed48da",
+                        units: "imperial"
+                    });
+                }
+
 
                 $('.inputBtn').click(function(e) {
                     e.preventDefault();
-                    var lat = $('#lat').val();
-                    var lng = document.getElementById('long').value;
-                    console.log(lat);
-                    console.log(lng);
-                //     // doTheThings();
+                    lat = $('#lat').val();
+                    lng = $('#long').val();
+                    submitUpdateCoor();
+                    // we need to be able to make an ajax request here
+                    // doTheThings();
                 });
 
                 ajaxRequestFore.done(function (forecast) {
@@ -130,12 +136,6 @@
                     }
                 };
                 var map = new google.maps.Map(document.getElementById("map-canvas"), mapSpecs);
-
-
-                // define variables that hold onto the inputs of lat and long, but .value isn't defined as a function?
-            // get the submit button to call a new request to the api and pass the lat and long inputs through with the request
-
-            // what am i missing from the map? geocoder? go back and look at the exercise...
             })();
         </script>
     </body>
