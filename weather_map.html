@@ -75,28 +75,24 @@
             (function () {
                 "use strict";
 
-                // var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?id=4726206", {
-                //     APPID: "59a3d5bdeb97441bc2f807694bed48da",
-                //     id:     4726206,
-                //     units: "imperial"
-                // });
-
-                var lat = document.getElementById('lat').value;
-                var lng = document.getElementById('long').value;
-
-                var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng, {
+                var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?id=4726206", {
                     APPID: "59a3d5bdeb97441bc2f807694bed48da",
-                    lat: lat,
-                    long: lng,
+                    id:     4726206,
                     units: "imperial"
                 });
 
+                // var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng, {
+                //     APPID: "59a3d5bdeb97441bc2f807694bed48da",
+                //     units: "imperial"
+                // });
+
                 $('.inputBtn').click(function(e) {
                     e.preventDefault();
+                    var lat = $('#lat').val();
+                    var lng = document.getElementById('long').value;
                     console.log(lat);
                     console.log(lng);
-
-                    // doTheThings();
+                //     // doTheThings();
                 });
 
                 ajaxRequestFore.done(function (forecast) {
