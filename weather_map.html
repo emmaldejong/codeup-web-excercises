@@ -60,11 +60,11 @@
                 <button class="inputBtn">Submit</button>
             </form>
             <br>
-            <div class="row">
-                <div class="col-sm-4 col-sm-offset-4">
-                    <div id="map-canvas"></div>
-                </div>
-            </div>
+            <!--<div class="row">-->
+                <!--<div class="col-sm-4 col-sm-offset-4">-->
+                    <!--<div id="map-canvas"></div>-->
+                <!--</div>-->
+            <!--</div>-->
         </main>
         <footer class="container-fluid"></footer>
         <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -85,57 +85,63 @@
                 });
 
                 function submitUpdateCoor() {
-                    $.get("http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng, {
-                        APPID: "59a3d5bdeb97441bc2f807694bed48da",
+                    $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+                        APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
+                        lat: $('#lat').val(),
+                        lon: $('#long').val(),
                         units: "imperial"
+                    }).done(function (forecast){
+                        buildHTML(forecast);
                     });
-                }
 
+                }
 
                 $('.inputBtn').click(function(e) {
                     e.preventDefault();
                     lat = $('#lat').val();
                     lng = $('#long').val();
+
                     submitUpdateCoor();
                     // we need to be able to make an ajax request here
-                    // doTheThings();
                 });
 
-                ajaxRequestFore.done(function (forecast) {
-                    console.log(forecast);
+                function buildHTML(forecast) {
+                        console.log(forecast);
+                        // have a loop inside the function that loops through
 
-                    var current = '';
-                    var iconCode = forecast.list["0"].weather["0"].icon;
-                    var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
 
-                    current = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list["0"].main.temp_max) + "°" + "/" +  " " + Math.round(forecast.list["0"].main.temp_min) + "°" + '</h3>' + '</div>' + '<div><img src="' + iconUrl  + '">' + '</div>' + '<div>' + "Clouds: " + forecast.list["0"].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list["0"].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list["0"].wind.speedd + '</div>' + '<div>' + "Pressure: " + forecast.list["0"].main.pressure + '</div>' + '</div>';
+                        var current = '';
+                        var iconCode = forecast.list["0"].weather["0"].icon;
+                        var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
 
-                    $('#current').append(current);
+                        current = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list["0"].main.temp_max) + "°" + "/" + " " + Math.round(forecast.list["0"].main.temp_min) + "°" + '</h3>' + '</div>' + '<div><img src="' + iconUrl + '">' + '</div>' + '<div>' + "Clouds: " + forecast.list["0"].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list["0"].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list["0"].wind.speedd + '</div>' + '<div>' + "Pressure: " + forecast.list["0"].main.pressure + '</div>' + '</div>';
 
-                    var tomorrow = '';
-                    var tomorrowIconCode = forecast.list[4].weather["0"].icon;
-                    var tomorrowIconUrl = "http://openweathermap.org/img/w/" + tomorrowIconCode + ".png";
+                        $('#current').append(current);
 
-                    tomorrow = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list[4].main.temp_max) + "°" + "/" + " " + Math.round(forecast.list[4].main.temp_min) + "°" + "</h3>" + '</div>' + '<div><img src="' + tomorrowIconUrl  + '">' + '</div>' + '<div>' + "Rain: " + forecast.list[4].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list[4].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list[4].wind.speed + '</div>' + '<div>' + "Pressure: " + forecast.list[4].main.pressure + '</div>';
+                        var tomorrow = '';
+                        var tomorrowIconCode = forecast.list[4].weather["0"].icon;
+                        var tomorrowIconUrl = "http://openweathermap.org/img/w/" + tomorrowIconCode + ".png";
 
-                    $('#tomorrow').append(tomorrow);
+                        tomorrow = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list[4].main.temp_max) + "°" + "/" + " " + Math.round(forecast.list[4].main.temp_min) + "°" + "</h3>" + '</div>' + '<div><img src="' + tomorrowIconUrl + '">' + '</div>' + '<div>' + "Rain: " + forecast.list[4].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list[4].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list[4].wind.speed + '</div>' + '<div>' + "Pressure: " + forecast.list[4].main.pressure + '</div>';
 
-                    var next = '';
-                    var nextIconCode = forecast.list[12].weather["0"].icon;
-                    var nextIconUrl = "http://openweathermap.org/img/w/" + nextIconCode + ".png";
+                        $('#tomorrow').append(tomorrow);
 
-                    next = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list[12].main.temp_max) + "°" + "/" + " " + Math.round(forecast.list[12].main.temp_min) + "°" + '</div>' + '<div><img src="' + nextIconUrl  + '">' + '</div>' + '<div>' + "Rain: " + forecast.list[12].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list[12].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list[12].wind.speed + '</div>' + '<div>' + "Pressure: " + forecast.list[12].main.pressure + '</div>';
+                        var next = '';
+                        var nextIconCode = forecast.list[12].weather["0"].icon;
+                        var nextIconUrl = "http://openweathermap.org/img/w/" + nextIconCode + ".png";
 
-                    $('#next').append(next);
-                });
-                var mapSpecs = {
-                    zoom: 12,
-                    center: {
-                        lat: 29.4241,
-                        lng: -98.4936
-                    }
-                };
-                var map = new google.maps.Map(document.getElementById("map-canvas"), mapSpecs);
+                        next = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list[12].main.temp_max) + "°" + "/" + " " + Math.round(forecast.list[12].main.temp_min) + "°" + '</div>' + '<div><img src="' + nextIconUrl + '">' + '</div>' + '<div>' + "Rain: " + forecast.list[12].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list[12].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list[12].wind.speed + '</div>' + '<div>' + "Pressure: " + forecast.list[12].main.pressure + '</div>';
+
+                        $('#next').append(next);
+                }
+                // var mapSpecs = {
+                //     zoom: 4,
+                //     center: {
+                //         lat: 37.0902,
+                //         lng: -105.2551
+                //     }
+                // };
+                // var map = new google.maps.Map(document.getElementById("map-canvas"), mapSpecs);
             })();
         </script>
     </body>
