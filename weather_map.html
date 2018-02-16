@@ -25,8 +25,6 @@
             }
             #map-canvas {
                 width: 500px;
-                margin-left: 450px;
-                margin-right: 300px;
                 height: 500px;
                 background-color: gray;
             }
@@ -63,7 +61,9 @@
             </form>
             <br>
             <div class="row">
-                <div class="col-sm-1" id="map-canvas"></div>
+                <div class="col-sm-4 col-sm-offset-4">
+                    <div id="map-canvas"></div>
+                </div>
             </div>
         </main>
         <footer class="container-fluid"></footer>
@@ -75,28 +75,11 @@
             (function () {
                 "use strict";
 
-                // var ajaxRequest = $.get("http://api.openweathermap.org/data/2.5/weather", {
-                //     APPID: "59a3d5bdeb97441bc2f807694bed48da",
-                //     id:     4726206,
-                //     units: "imperial"
-                // });
-
                 var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?id=4726206", {
                     APPID: "59a3d5bdeb97441bc2f807694bed48da",
                     id:     4726206,
                     units: "imperial"
                 });
-
-                // ajaxRequest.done(function (weather) {
-                //     console.log(weather);
-                //     var current = '';
-                //     var iconCode = weather.weather["0"].icon;
-                //     var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
-                //
-                //     current = '<div>' + '<div>' + '<h3>' + Math.round(weather.main.temp_max) + "°" + "/" +  " " + Math.round(weather.main.temp_min) + "°" + '</h3>' + '</div>' + '<div><img src="' + iconUrl  + '">' + '</div>' + '<div>' + "Clouds: " + weather.weather["0"].description + '</div>' + '<div>' + "Humidity: " + weather.main.humidity + '</div>' + '<div>' + "Wind: " + weather.wind.speed + '</div>' + '<div>' + "Pressure: " + weather.main.pressure + '</div>' + '</div>';
-                //
-                //     $('#current').append(current);
-                // });
 
                 ajaxRequestFore.done(function (forecast) {
                     console.log(forecast);
@@ -134,13 +117,22 @@
                 };
                 var map = new google.maps.Map(document.getElementById("map-canvas"), mapSpecs);
 
-                var lat = document.getElementById('lat').value();
-                var long = document.getElementById('long').value();
+                var lat = document.getElementById('lat').value;
+                var long = document.getElementById('long').value;
+
+                console.log(lat);
+                console.log(long);
+
+                // $('test').click(function(e) {
+                //     e.preventDefault();
+                //
+                //     doTheThings();
+                // });
 
 
-            // define variables that hold onto the inputs of lat and long, but .value isn't defined as a function?
+                // define variables that hold onto the inputs of lat and long, but .value isn't defined as a function?
             // get the submit button to call a new request to the api and pass the lat and long inputs through with the request
-            // can all this be done the way i hard coded and used the weather and forecast api?
+            // can all this be done the way i hard coded?
 
             // what am i missing from the map? geocoder? go back and look at the exercise...
             // why isn't my map responsive with the rest of the page?
