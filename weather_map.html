@@ -7,7 +7,7 @@
         <style>
             body {
                 text-align: center;
-                background-color: lightblue;
+                background-image: url('images/earth-background.jpeg');
             }
             p {
                 font-weight: bold;
@@ -23,11 +23,11 @@
                 font-size: 18px;
                 font-weight: bold;
             }
-            #map-canvas {
-                width: 500px;
-                height: 500px;
-                background-color: gray;
-            }
+            /*#map-canvas {*/
+                /*width: 500px;*/
+                /*height: 500px;*/
+                /*background-color: gray;*/
+            /*}*/
         </style>
     </head>
     <body>
@@ -70,79 +70,79 @@
         <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7TRsunSEfSF8Ew9198XtAutfqoO75amg"></script>
-        <script>
-            (function () {
-                "use strict";
+        <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7TRsunSEfSF8Ew9198XtAutfqoO75amg"></script>-->
+        <script src="js/weather-map-js.js"></script>
+        <!--<script>-->
+            <!--(function () {-->
+                <!--"use strict";-->
 
-                var lat;
-                var lng;
+                <!--var lat;-->
+                <!--var lng;-->
 
-                var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?id=4726206", {
-                    APPID: "59a3d5bdeb97441bc2f807694bed48da",
-                    id:     4726206,
-                    units: "imperial"
-                });
+                <!--// var ajaxRequestFore = $.get("http://api.openweathermap.org/data/2.5/forecast?id=4726206", {-->
+                <!--//     APPID: "59a3d5bdeb97441bc2f807694bed48da",-->
+                <!--//     id:     4726206,-->
+                <!--//     units: "imperial"-->
+                <!--// });-->
 
-                function submitUpdateCoor() {
-                    $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
-                        APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
-                        lat: $('#lat').val(),
-                        lon: $('#long').val(),
-                        units: "imperial"
-                    }).done(function (forecast){
-                        buildHTML(forecast);
-                    });
+                <!--function submitUpdateCoor() {-->
+                    <!--$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {-->
+                        <!--APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",-->
+                        <!--lat: $('#lat').val(),-->
+                        <!--lon: $('#long').val(),-->
+                        <!--units: "imperial"-->
+                    <!--}).done(function (forecast){-->
+                        <!--buildHTML(forecast);-->
+                    <!--});-->
+                <!--}-->
 
-                }
+                <!--$('.inputBtn').click(function(e) {-->
+                    <!--e.preventDefault();-->
+                    <!--lat = $('#lat').val();-->
+                    <!--lng = $('#long').val();-->
 
-                $('.inputBtn').click(function(e) {
-                    e.preventDefault();
-                    lat = $('#lat').val();
-                    lng = $('#long').val();
+                    <!--submitUpdateCoor();-->
+                    <!--// we need to be able to make an ajax request here-->
+                <!--});-->
 
-                    submitUpdateCoor();
-                    // we need to be able to make an ajax request here
-                });
-
-                function buildHTML(forecast) {
-                        console.log(forecast);
-                        // have a loop inside the function that loops through
+                <!--function buildHTML(forecast) {-->
+                        <!--console.log(forecast);-->
+                        <!--// have a loop inside the function that loops through-->
 
 
-                        var current = '';
-                        var iconCode = forecast.list["0"].weather["0"].icon;
-                        var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+                        <!--var current = '';-->
+                        <!--var iconCode = forecast.list["0"].weather["0"].icon;-->
+                        <!--var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";-->
 
-                        current = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list["0"].main.temp_max) + "°" + "/" + " " + Math.round(forecast.list["0"].main.temp_min) + "°" + '</h3>' + '</div>' + '<div><img src="' + iconUrl + '">' + '</div>' + '<div>' + "Clouds: " + forecast.list["0"].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list["0"].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list["0"].wind.speedd + '</div>' + '<div>' + "Pressure: " + forecast.list["0"].main.pressure + '</div>' + '</div>';
+                        <!--current = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list["0"].main.temp_max) + "°" + "/" + " " + Math.round(forecast.list["0"].main.temp_min) + "°" + '</h3>' + '</div>' + '<div><img src="' + iconUrl + '">' + '</div>' + '<div>' + "Clouds: " + forecast.list["0"].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list["0"].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list["0"].wind.speedd + '</div>' + '<div>' + "Pressure: " + forecast.list["0"].main.pressure + '</div>' + '</div>';-->
 
-                        $('#current').append(current);
+                        <!--$('#current').append(current);-->
 
-                        var tomorrow = '';
-                        var tomorrowIconCode = forecast.list[4].weather["0"].icon;
-                        var tomorrowIconUrl = "http://openweathermap.org/img/w/" + tomorrowIconCode + ".png";
+                        <!--var tomorrow = '';-->
+                        <!--var tomorrowIconCode = forecast.list[4].weather["0"].icon;-->
+                        <!--var tomorrowIconUrl = "http://openweathermap.org/img/w/" + tomorrowIconCode + ".png";-->
 
-                        tomorrow = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list[4].main.temp_max) + "°" + "/" + " " + Math.round(forecast.list[4].main.temp_min) + "°" + "</h3>" + '</div>' + '<div><img src="' + tomorrowIconUrl + '">' + '</div>' + '<div>' + "Rain: " + forecast.list[4].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list[4].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list[4].wind.speed + '</div>' + '<div>' + "Pressure: " + forecast.list[4].main.pressure + '</div>';
+                        <!--tomorrow = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list[4].main.temp_max) + "°" + "/" + " " + Math.round(forecast.list[4].main.temp_min) + "°" + "</h3>" + '</div>' + '<div><img src="' + tomorrowIconUrl + '">' + '</div>' + '<div>' + "Rain: " + forecast.list[4].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list[4].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list[4].wind.speed + '</div>' + '<div>' + "Pressure: " + forecast.list[4].main.pressure + '</div>';-->
 
-                        $('#tomorrow').append(tomorrow);
+                        <!--$('#tomorrow').append(tomorrow);-->
 
-                        var next = '';
-                        var nextIconCode = forecast.list[12].weather["0"].icon;
-                        var nextIconUrl = "http://openweathermap.org/img/w/" + nextIconCode + ".png";
+                        <!--var next = '';-->
+                        <!--var nextIconCode = forecast.list[12].weather["0"].icon;-->
+                        <!--var nextIconUrl = "http://openweathermap.org/img/w/" + nextIconCode + ".png";-->
 
-                        next = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list[12].main.temp_max) + "°" + "/" + " " + Math.round(forecast.list[12].main.temp_min) + "°" + '</div>' + '<div><img src="' + nextIconUrl + '">' + '</div>' + '<div>' + "Rain: " + forecast.list[12].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list[12].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list[12].wind.speed + '</div>' + '<div>' + "Pressure: " + forecast.list[12].main.pressure + '</div>';
+                        <!--next = '<div>' + '<div>' + '<h3>' + Math.round(forecast.list[12].main.temp_max) + "°" + "/" + " " + Math.round(forecast.list[12].main.temp_min) + "°" + '</div>' + '<div><img src="' + nextIconUrl + '">' + '</div>' + '<div>' + "Rain: " + forecast.list[12].weather["0"].description + '</div>' + '<div>' + "Humidity: " + forecast.list[12].main.humidity + '</div>' + '<div>' + "Wind: " + forecast.list[12].wind.speed + '</div>' + '<div>' + "Pressure: " + forecast.list[12].main.pressure + '</div>';-->
 
-                        $('#next').append(next);
-                }
-                // var mapSpecs = {
-                //     zoom: 4,
-                //     center: {
-                //         lat: 37.0902,
-                //         lng: -105.2551
-                //     }
-                // };
-                // var map = new google.maps.Map(document.getElementById("map-canvas"), mapSpecs);
-            })();
-        </script>
+                        <!--$('#next').append(next);-->
+                <!--}-->
+                <!--// var mapSpecs = {-->
+                <!--//     zoom: 4,-->
+                <!--//     center: {-->
+                <!--//         lat: 37.0902,-->
+                <!--//         lng: -105.2551-->
+                <!--//     }-->
+                <!--// };-->
+                <!--// var map = new google.maps.Map(document.getElementById("map-canvas"), mapSpecs);-->
+            <!--})();-->
+        <!--</script>-->
     </body>
 </html>
