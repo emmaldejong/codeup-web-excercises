@@ -122,7 +122,7 @@ console.log(averageAge);
 
 // - Create an array of family objects without the age property
 // TODO
-const ageNone = family.filter();
+const ageNone = family.filter({age});
 console.log(ageNone);
 
 // - Create an array of all minors
