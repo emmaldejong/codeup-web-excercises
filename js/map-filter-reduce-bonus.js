@@ -34,6 +34,14 @@ const customerArray = customers.map(customer => {
 });
 console.log(customerArray);
 
+//Ryan's Solution
+// customers.map(function ({name, age}) {
+//     return {
+//         name,
+//         age
+//     };
+// });
+
 // PROBLEM 3 - create an array of civil servant customers (teachers and police officers)
 // containing the same properties as the objects on the customers objects
 // PROBLEM 3 HINT - use .filter()
@@ -42,6 +50,10 @@ const civilServants = customers.filter(function(customer) {
 });
 console.log(civilServants);
 
+//Ryan's Solution with Deconstruction Applied
+// const civilServants = customers.filter(({occupation}) => {
+//     return occupation === 'Police Officer' || occupation === 'Teacher';
+// });
 
 // PROBLEM 4 - determine the average age of customers
 // PROBLEM 4 HINT - use .reduce()
@@ -56,12 +68,17 @@ const names = ["John", "Max", "Ronald"];
 // complete the bonuses below...
 // - Create an array where all names are given a last name of Smith.
 //TODO
+// const lastName = names.map(fullName => (fullName);
+// console.log(lastName);
+
 // - Create an array where each word is in all caps
 const allCaps = names.map(name => name.toUpperCase());
 console.log(allCaps);
+
 // - Create an array where all names have more than 3 letters
 const threeLetters = names.filter(name => name.length > 3);
 console.log(threeLetters);
+
 // - Create an array of names with only the last two letters of each name
 //TODO
 // - Create a total count of all letters
@@ -99,22 +116,25 @@ const family = [
 // complete the bonuses below...
 // - Calculate the average age of family members
 const averageAge = family.reduce((total, person) => {
-    return total + person.age/family.length;
-}, 0);
+    return total + person.age;
+}, 0) /family.length;
 console.log(averageAge);
 
 // - Create an array of family objects without the age property
 // TODO
-const ageNone = family.filter(function (element) {
-    return element != element.age;
-});
+const ageNone = family.filter();
 console.log(ageNone);
 
 // - Create an array of all minors
 const minorAge = family.filter(function (age) {
-    return age.age >= 18;
+    return age.age < 18;
 });
 console.log(minorAge);
+
+//Shorthand Solution with Deconstruction
+// let minorAge = family.filter(({age}) => {
+//     return age < 18;
+// });
 
 // - Calculate the total age combined of family members
 const totalAge = family.reduce((total, person) => {
@@ -129,8 +149,10 @@ const onlyFemale = family.filter(function (familyMember) {
 console.log(onlyFemale);
 
 // - Create a single object with properties containing arrays of all names, genders, and ages
-// TODO
-const familyObject = family.reduce((accum, person) => {
-    return accum[person] = person;
-});
-console.log(familyObject);
+const output = {
+    names: family.map(obj => obj.name),
+    genders: family.map(obj => obj.gender),
+    ages: family.map(obj => obj.age)
+};
+
+console.log(output);
