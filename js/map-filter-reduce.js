@@ -49,7 +49,7 @@ console.log(threeLanguages);
 // console.log(emailAddress);
 
     //use es6 syntax and refactor
-const emailAddress = users.map(email => email.email);
+const emailAddress = users.map(user => user.email);
 console.log(emailAddress);
 
     //other methods of writing solution
@@ -68,8 +68,8 @@ console.log(emailAddress);
 // console.log(arrayOfEmails);
 
 //3. Use .reduce to transform the array into an object where the object's keys are ids and the values are objects that represent each user
-const reduceArray = users.reduce((acc, curr) => {
-    acc[curr.id] = curr;
+const reduceArray = users.reduce((acc, user) => {
+    acc[user.id] = user;
     return acc;
 }, {});
 console.log(reduceArray);
